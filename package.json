@@ -21,6 +21,7 @@
     "dot-env": "*",
     "express": "*",
     "fs-extra": "*",
+    "gulp": "^3.9.1",
     "moment": "*",
     "promise": "*",
     "q": "*",
