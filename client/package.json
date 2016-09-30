@@ -7,8 +7,7 @@
     "postinstall": "npm run typings install && tsc",
     "typings": "typings",
     "tsc": "tsc",
-    "tsc:w": "tsc -w",
-    "typings": "typings"
+    "tsc:w": "tsc -w"
   },
   "license": "ISC",
   "dependencies": {
