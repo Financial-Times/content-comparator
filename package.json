@@ -32,6 +32,7 @@
   "scripts": {
     "build": "cd client && npm install && gulp build && cd ..",
     "start": "npm run build && node boot",
-    "start-dev": "npm run build && node-dev boot"
+    "start-dev": "npm run build && node-dev boot",
+    "preinstall": "npm i typings -g"
   }
 }
