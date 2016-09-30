@@ -4,7 +4,7 @@
   "scripts": {
     "start-dev": "tsc && gulp build && concurrently \"npm run tsc:w\" \"gulp watch\" \"npm run lite\" ",
     "lite": "lite-server",
-    "postinstall": "npm install -g tsc && typings install",
+    "postinstall": "npm install -g typescript && npm install -g tsc && typings install",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "typings": "typings"
