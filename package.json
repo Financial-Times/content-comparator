@@ -30,7 +30,7 @@
     "winston": "*"
   },
   "scripts": {
-    "build": "cd client && tsc && gulp build && cd ..",
+    "build": "cd client && npm install && tsc && gulp build && cd ..",
     "start": "npm run build && node boot",
     "start-dev": "npm run build && node-dev boot"
   }
