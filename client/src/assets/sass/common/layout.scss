@@ -1,0 +1,61 @@
+html, body {
+    height: 100%;
+    background: $grey-tint5;
+}
+
+body * {
+    font-family: 'bentonsans';
+}
+
+body a:link,
+body a:visited {
+    color: $teal-1;
+}
+
+body a:hover,
+body a:active,
+body a:focus {
+    color: $teal-1;
+}
+
+.o-header-services__container {
+    max-width: 100%;
+}
+
+.o-header__top-column a:link,
+.o-header__top-column a:visited {
+    color: $white;
+}
+
+.wrapper {
+    padding-top: 24px;
+}
+
+.page-wrapper {
+    background: $pink;
+    padding: 24px;
+}
+
+.navigation {
+    background: $grey-tint5;
+}
+
+.main-nav li a {
+    color: $grey-tint1;
+}
+
+.main-nav li a.active,
+.main-nav li a.active:hover {
+    color: $teal-1;
+    background-color: $pink;
+    border: 1px solid #1c1e22;
+    border-bottom-color: transparent;
+    cursor: pointer;
+}
+
+.main-nav li a:hover {
+    color: white;
+    background-color: $teal-1;
+    border-color: transparent;
+    border-bottom-color: #ecf0f1;
+}

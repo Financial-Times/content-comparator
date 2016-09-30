@@ -1,0 +1,36 @@
+.article {
+
+    font-family: 'MetricWeb', sans-serif;
+    font-size: medium;
+
+    h4 {
+        font-family: 'FinancierDisplayWeb', serif;
+        font-size: 26px;
+    }
+
+    .article-summary {
+        font-family: 'MetricWeb', sans-serif;
+        font-size: 20px;
+    }
+
+    .article-image {
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        figcaption {
+            font-size: 15px;
+            line-height: 17px;
+            font-style: italic;
+            color: $grey-tint4;
+            margin: .5em 0;
+        }
+    }
+
+    p {
+        font-family:  'Georgia', serif;
+        font-size: 18px;
+    }
+}

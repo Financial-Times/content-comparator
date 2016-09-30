@@ -1,0 +1,37 @@
+{
+  "name": "ft-content-comparator-be",
+  "version": "1.0.0",
+  "description": "FT Content Comparator BE App",
+  "author": "Tomasz Libich <tomasz.libich@ft.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Financial-Times/ft-content-comparator.git"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-contrib-copy": "^0.1.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-task-loader": "^1.4.4",
+    "gulp-watch": "^4.3.10",
+    "run-sequence": "^1.2.2"
+  },
+  "dependencies": {
+    "body-parser": "*",
+    "dot-env": "*",
+    "express": "*",
+    "fs-extra": "*",
+    "moment": "*",
+    "promise": "*",
+    "q": "*",
+    "request": "*",
+    "s3o-middleware": "^1.7.0",
+    "util": "*",
+    "winston": "*"
+  },
+  "scripts": {
+    "build": "cd client && tsc && gulp build && cd ..",
+    "start": "npm run build && node boot",
+    "start-dev": "npm run build && node-dev boot"
+  }
+}

@@ -1,0 +1,421 @@
+{
+    "requestUrl":"http://api.ft.com/content/items/v1/b7b871f6-8a89-11e4-8e24-00144feabdc0",
+    "item":{
+        "aspectSet":"article",
+        "aspects":[
+            "assets",
+            "body",
+            "editorial",
+            "images",
+            "lifecycle",
+            "location",
+            "master",
+            "mediaAssets",
+            "metadata",
+            "package",
+            "packaging",
+            "provenance",
+            "summary",
+            "title"
+        ],
+        "modelVersion":"1",
+        "id":"b7b871f6-8a89-11e4-8e24-00144feabdc0",
+        "apiUrl":"http://api.ft.com/content/items/v1/b7b871f6-8a89-11e4-8e24-00144feabdc0",
+        "title":{
+            "title":"UK looks set to miss 3% growth forecast"
+        },
+        "body":{
+            "mediaType":"text/html",
+            "body":"<p>Growth this year is likely to miss the government’s 3 per cent forecast, undermining the boast by <a title=\"George Osborne - Topics - Financial Times\" href=\"http://www.ft.com/topics/people/George_Osborne\">George Osborne</a> that the British economy was growing faster than any of its key rivals.</p>\n<p>A series of official revisions to UK economic output estimates showed the annual rate of gross domestic product growth in the third quarter falling from 3 per cent to 2.6 per cent. </p>\n<p>The figures came as the US simultaneously posted its <a title=\"http://www.ft.com/cms/s/0/5519edb4-8ab0-11e4-be0e-00144feabdc0.html?siteedition=uk\" href=\"http://www.ft.com/cms/s/0/5519edb4-8ab0-11e4-be0e-00144feabdc0.html?siteedition=uk\">fastest rate of economic expansion</a> in more than a decade, with growth at an annualised rate of 5 per cent in the third quarter.</p>\n<p>The UK setback came only weeks after the <a title=\"Autumn Statement 2014: The chancellor’s speech - FT.com\" href=\"http://www.ft.com/cms/s/0/a3fb6aaa-7ae5-11e4-8646-00144feabdc0.html\">chancellor told MPs </a>the country was on track to be the “fastest growing of any major advanced economy in the world”.</p>\n<p>Phillip Shaw, chief economist at Investec, said there was “not much seasonal cheer” in the new numbers and that there was now “no way” that the <a title=\"UK Economy - latest UK economy news headlines - FT.com\" href=\"http://www.ft.com/global-economy/uk\">UK economy</a> was going to grow by 3 per cent overall for 2014 as the Office for Budgetary Responsibility had forecast earlier this month</p>\n<p>Sterling fell to a 16-month low against the dollar as traders bet that the Federal Reserve was increasingly likely to raise interest rates before the Bank of England. </p>\n<p>An ally of Mr Osborne said official revisions “come and go”, adding: “These are in no way a major blow; they are small revisions to past quarters that don’t significantly change the picture of the recovery.”</p>\n<p>But Labour said the figures were disappointing, given that growth had been revised downwards by the Office for National Statistics for five of the past six quarters — while exports and business investments were weak.</p>\n<p>The new data also showed the country’s current account deficit sank to a record £27bn in the third quarter, or 6 per cent of GDP.</p>\n<p>“The chancellor has totally failed to rebalance the economy as he promised,” said Shabana Mahmood, shadow Treasury minister. “These are concerning figures.”</p>\n<p>The ONS made the downward revisions on Tuesday due to weakness in the production industries and a greater drag from trade.</p>\n<p>While growth in the third quarter was confirmed at 0.7 per cent, the previous downward revisions mean this increase came from a lower base, resulting in the cut in the annual GDP growth rate in the third quarter. </p>\n<p>Mr Shaw pointed out that it was important to remember where the UK economy had been a couple of years ago, adding: “We’ve made considerable progress, even if today’s figures are a setback.”</p>\n<aside data-asset-type=\"pullQuote\" data-asset-name=\"asset1\"></aside><p>Samuel Tombs, senior UK economist at Capital Economics consultancy, said the latest figures “leave the UK’s economic recovery looking more fragile than it seemed before”.</p>\n<p>A Treasury spokesman said that weakness in the euro area and instability in global markets meant that now was a “critical moment” for the economy, and “we need to carry on working through our economic plan”.</p>\n<p>The breakdown of the statistics also showed that the recovery was a little less balanced than previously thought, with growth in household spending revised up and overall investment down. </p>\n<p>Households’ real disposable income also fell in the third quarter, meaning that consumers funded extra spending by <a title=\"Consumer splurge has shaky foundations - FT.com\" href=\"http://www.ft.com/cms/s/0/c3e29118-8aad-11e4-8e24-00144feabdc0.html\">reducing the proportion of income they saved </a>from 7.5 per cent to 7 per cent. </p>\n<p>That is another blow to Mr Osborne, given his repeated claims to be shifting the economy away from debt-fuelled growth.</p>\n<p>The deteriorating current account deficit was mainly due to falling receipts from foreign direct investment, and rising payments including dividends to foreign investors.</p>\n<p>Simon Wells, chief UK economist at HSBC, said that while the deficit did not seem to be a problem right now, it showed how much the UK relied on overseas investors buying its debt. </p>\n<p>“If the UK falls out of favour with international investors for any reason, the economy might be forced to rebalance the hard way — i e with a combination of currency depreciation to make exports more competitive and lower domestic demand to suck in fewer imports,” he said. </p>\n<p>Martin Beck, senior economic adviser to the EY Item Club, said taken together the data “took some of the gloss off the recent good news we’ve been getting”.</p>"
+        },
+        "lifecycle":{
+            "initialPublishDateTime":"2014-12-23T10:39:36Z",
+            "lastPublishDateTime":"2014-12-23T20:45:54Z"
+        },
+        "location":{
+            "uri":"http://www.ft.com/cms/s/0/b7b871f6-8a89-11e4-8e24-00144feabdc0.html"
+        },
+        "summary":{
+            "excerpt":"Downgrade of official estimates delivers political blow to George Osborne"
+        },
+        "packaging":{
+            "spHeadline":"UK looks set to miss 3% growth forecast"
+        },
+        "master":{
+            "masterSource":"Methode",
+            "masterEntityId":"b7b871f6-8a89-11e4-8e24-00144feabdc0"
+        },
+        "editorial":{
+            "otherTitles":[
+                "UK looks set to miss 3% growth forecast"
+            ],
+            "subheading":"Downgrade of official estimates delivers political blow to Osborne",
+            "standFirst":"Downgrade of official estimates delivers political blow to George Osborne",
+            "byline":"Emily Cadman and Jim Pickard"
+        },
+        "provenance":{
+            "originatingParty":"FT"
+        },
+        "metadata":{
+            "primarySection":{
+                "term":{
+                    "name":"UK Politics & Policy",
+                    "id":"OA==-U2VjdGlvbnM=",
+                    "attributes":[
+
+                    ],
+                    "taxonomy":"sections"
+                }
+            },
+            "primaryTheme":{
+                "term":{
+                    "name":"UK economic growth",
+                    "id":"Y2U5M2NjNDUtZGUwNS00ZmFkLWE2ZGEtOTY5YjIxY2E2MDFl-VG9waWNz",
+                    "attributes":[
+
+                    ],
+                    "taxonomy":"topics"
+                }
+            },
+            "tags":[
+                {
+                    "term":{
+                        "name":"UK Politics & Policy",
+                        "id":"OA==-U2VjdGlvbnM=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"sections"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"UK economic growth",
+                        "id":"Y2U5M2NjNDUtZGUwNS00ZmFkLWE2ZGEtOTY5YjIxY2E2MDFl-VG9waWNz",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"topics"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"News",
+                        "id":"Nw==-R2VucmVz",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"genre"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"Text",
+                        "id":"ZjMwY2E2NjctMDA1Ni00ZTk4LWI0MWUtZjk5MTk2ZTMyNGVm-TWVkaWFUeXBlcw==",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"mediaType"
+                    }
+                }
+            ],
+            "authors":[
+                {
+                    "term":{
+                        "name":"Emily Cadman",
+                        "id":"Q0ItMDAwMTA1Nw==-QXV0aG9ycw==",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"authors"
+                    }
+                }
+            ],
+            "brand":[
+
+            ],
+            "genre":[
+                {
+                    "term":{
+                        "name":"News",
+                        "id":"Nw==-R2VucmVz",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"genre"
+                    }
+                }
+            ],
+            "icb":[
+
+            ],
+            "iptc":[
+                {
+                    "term":{
+                        "name":"04008000 - macro economics",
+                        "id":"MDQwMDgwMDA=-SVBUQw==",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"iptc"
+                    }
+                }
+            ],
+            "mediaType":[
+                {
+                    "term":{
+                        "name":"Text",
+                        "id":"ZjMwY2E2NjctMDA1Ni00ZTk4LWI0MWUtZjk5MTk2ZTMyNGVm-TWVkaWFUeXBlcw==",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"mediaType"
+                    }
+                }
+            ],
+            "organisations":[
+                {
+                    "term":{
+                        "name":"Capital Economics Ltd",
+                        "id":"MzczZmIxOGQtMDBkZS00ZjhlLWIwY2QtNGY0NzkwOTkyNDZh-T04=",
+                        "attributes":[
+                            {
+                                "key":"is_company",
+                                "value":"true"
+                            }
+                        ],
+                        "taxonomy":"organisations"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"Office for National Statistics UK",
+                        "id":"TnN0ZWluX09OX0FGVE1fT05fMjM4ODMx-T04=",
+                        "attributes":[
+                            {
+                                "key":"is_company",
+                                "value":"false"
+                            }
+                        ],
+                        "taxonomy":"organisations"
+                    }
+                }
+            ],
+            "people":[
+                {
+                    "term":{
+                        "name":"George Osborne",
+                        "id":"TnN0ZWluX1BOX1BvbGl0aWNpYW5fNTk4-UE4=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"people"
+                    }
+                }
+            ],
+            "regions":[
+                {
+                    "term":{
+                        "name":"United Kingdom",
+                        "id":"TnN0ZWluX0dMX0dC-R0w=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"regions"
+                    }
+                }
+            ],
+            "sections":[
+                {
+                    "term":{
+                        "name":"Global Economy",
+                        "id":"MTA3-U2VjdGlvbnM=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"sections"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"UK Economy",
+                        "id":"MTA5-U2VjdGlvbnM=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"sections"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"UK Politics & Policy",
+                        "id":"OA==-U2VjdGlvbnM=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"sections"
+                    }
+                }
+            ],
+            "specialReports":[
+
+            ],
+            "subjects":[
+                {
+                    "term":{
+                        "name":"Economic Indicators",
+                        "id":"NjU=-U3ViamVjdHM=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"subjects"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"GDP & GNP",
+                        "id":"NzE=-U3ViamVjdHM=",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"subjects"
+                    }
+                }
+            ],
+            "topics":[
+                {
+                    "term":{
+                        "name":"UK downturn",
+                        "id":"MGU0YzRiYjItZWI3Mi00ZjA4LTliYzYtZDA4ZGY0YWExYmVk-VG9waWNz",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"topics"
+                    }
+                },
+                {
+                    "term":{
+                        "name":"UK economic growth",
+                        "id":"Y2U5M2NjNDUtZGUwNS00ZmFkLWE2ZGEtOTY5YjIxY2E2MDFl-VG9waWNz",
+                        "attributes":[
+
+                        ],
+                        "taxonomy":"topics"
+                    }
+                }
+            ]
+        },
+        "images":[
+            {
+                "url":"http://im.ft-static.com/content/images/01c17709-5a17-4e18-8b69-31f59709ea8a.img",
+                "type":"primary",
+                "source":"Bloomberg",
+                "alt":"The evening sun sets on the horizon beyond 20 Fenchurch Street, also known as the 'Walkie-Talkie,' left, the Leadenhall building, also known as the 'Cheesegrater,' center left, Tower 42, center right, 30 St Mary Axe also known as 'the Gherkin,' and the Heron Tower, right, in the City of London, U.K., on Thursday, July 3, 2014. The pound advanced to a 21-month high versus the euro, strengthening for a fifth day, as speculation the Bank of England will tighten policy this year contrasted with the European Central Bank's outlook. Photographer: Simon Dawson/Bloomberg",
+                "height":153,
+                "width":272,
+                "mediaType":"image/jpeg"
+            },
+            {
+                "url":"http://im.ft-static.com/content/images/162ead58-d3e7-467e-a671-c935915c728d.img",
+                "type":"secondary",
+                "source":"Bloomberg",
+                "alt":"The evening sun sets on the horizon beyond 20 Fenchurch Street, also known as the 'Walkie-Talkie,' left, the Leadenhall building, also known as the 'Cheesegrater,' center left, Tower 42, center right, 30 St Mary Axe also known as 'the Gherkin,' and the Heron Tower, right, in the City of London, U.K., on Thursday, July 3, 2014. The pound advanced to a 21-month high versus the euro, strengthening for a fifth day, as speculation the Bank of England will tighten policy this year contrasted with the European Central Bank's outlook. Photographer: Simon Dawson/Bloomberg",
+                "height":94,
+                "width":167,
+                "mediaType":"image/jpeg"
+            },
+            {
+                "url":"http://im.ft-static.com/content/images/485dbc73-62e8-40fc-aac1-3d9e6f751a86.img",
+                "type":"article",
+                "source":"Bloomberg",
+                "alt":"The evening sun sets on the horizon beyond 20 Fenchurch Street, also known as the 'Walkie-Talkie,' left, the Leadenhall building, also known as the 'Cheesegrater,' center left, Tower 42, center right, 30 St Mary Axe also known as 'the Gherkin,' and the Heron Tower, right, in the City of London, U.K., on Thursday, July 3, 2014. The pound advanced to a 21-month high versus the euro, strengthening for a fifth day, as speculation the Bank of England will tighten policy this year contrasted with the European Central Bank's outlook. Photographer: Simon Dawson/Bloomberg",
+                "height":338,
+                "width":600,
+                "mediaType":"image/jpeg"
+            },
+            {
+                "url":"http://im.ft-static.com/content/images/43e224eb-07f4-40d7-b5c3-b2f887a2bc62.img",
+                "type":"leader",
+                "source":"Bloomberg",
+                "alt":"The evening sun sets on the horizon beyond 20 Fenchurch Street, also known as the 'Walkie-Talkie,' left, the Leadenhall building, also known as the 'Cheesegrater,' center left, Tower 42, center right, 30 St Mary Axe also known as 'the Gherkin,' and the Heron Tower, right, in the City of London, U.K., on Thursday, July 3, 2014. The pound advanced to a 21-month high versus the euro, strengthening for a fifth day, as speculation the Bank of England will tighten policy this year contrasted with the European Central Bank's outlook. Photographer: Simon Dawson/Bloomberg",
+                "height":233,
+                "width":414,
+                "mediaType":"image/jpeg"
+            },
+            {
+                "url":"http://im.ft-static.com/content/images/2b50089f-3b59-4caf-863d-8dfdfbc3996e.img",
+                "type":"wide-format",
+                "source":"Bloomberg",
+                "alt":"The evening sun sets on the horizon beyond 20 Fenchurch Street, also known as the 'Walkie-Talkie,' left, the Leadenhall building, also known as the 'Cheesegrater,' center left, Tower 42, center right, 30 St Mary Axe also known as 'the Gherkin,' and the Heron Tower, right, in the City of London, U.K., on Thursday, July 3, 2014. The pound advanced to a 21-month high versus the euro, strengthening for a fifth day, as speculation the Bank of England will tighten policy this year contrasted with the European Central Bank's outlook. Photographer: Simon Dawson/Bloomberg",
+                "height":547,
+                "width":972,
+                "mediaType":"image/jpeg"
+            }
+        ],
+        "package":[
+            {
+                "id":"c3e29118-8aad-11e4-8e24-00144feabdc0",
+                "apiUrl":"http://api.ft.com/content/items/v1/c3e29118-8aad-11e4-8e24-00144feabdc0",
+                "packaging":{
+                    "spHeadline":"Consumer splurge has shaky foundations"
+                },
+                "provenance":{
+                    "originatingParty":"FT"
+                }
+            },
+            {
+                "id":"ecb2d8a4-8ab8-11e4-be0e-00144feabdc0",
+                "apiUrl":"http://api.ft.com/content/items/v1/ecb2d8a4-8ab8-11e4-be0e-00144feabdc0",
+                "packaging":{
+                    "spHeadline":"Motorists benefit from petrol price drop"
+                },
+                "provenance":{
+                    "originatingParty":"FT"
+                }
+            },
+            {
+                "id":"e60712a2-8aba-11e4-8e24-00144feabdc0",
+                "apiUrl":"http://api.ft.com/content/items/v1/e60712a2-8aba-11e4-8e24-00144feabdc0",
+                "packaging":{
+                    "spHeadline":"Labour attacks families’ housing shortage"
+                },
+                "provenance":{
+                    "originatingParty":"FT"
+                }
+            },
+            {
+                "id":"d2560d86-89c9-11e4-8daa-00144feabdc0",
+                "apiUrl":"http://api.ft.com/content/items/v1/d2560d86-89c9-11e4-8daa-00144feabdc0",
+                "packaging":{
+                    "spHeadline":"Britons shift spending towards luxuries"
+                },
+                "provenance":{
+                    "originatingParty":"FT"
+                }
+            },
+            {
+                "id":"de0ca924-86da-11e4-982e-00144feabdc0",
+                "apiUrl":"http://api.ft.com/content/items/v1/de0ca924-86da-11e4-982e-00144feabdc0",
+                "packaging":{
+                    "spHeadline":"Grim year for UK profit warnings"
+                },
+                "provenance":{
+                    "originatingParty":"FT"
+                }
+            }
+        ],
+        "assets":[
+            {
+                "type":"pullQuote",
+                "name":"asset1",
+                "fields":{
+                    "body":"<p>The chancellor has totally failed to rebalance the economy as he promised. These are concerning figures</p>",
+                    "attribution":"Shabana Mahmood, shadow Treasury minister"
+                }
+            }
+        ],
+        "mediaAssets":[
+
+        ]
+    }
+}

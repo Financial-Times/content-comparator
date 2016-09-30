@@ -1,2 +1,2 @@
 # ft-content-comparator
-FT Content Comparator Tool
+FT Content Comparator - Internal Debugging Tool
