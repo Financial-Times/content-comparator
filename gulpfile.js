@@ -3,7 +3,7 @@
     const CONFIG = {
         path: {
             clientSrc: 'client/src/',
-            clientTarget: 'client/target',
+            clientTarget: 'client/target/',
             tasks: 'gulp-tasks/'
         }
     };

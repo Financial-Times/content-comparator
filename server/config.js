@@ -14,7 +14,7 @@ const fs = require('fs-extra'),
 module.exports = {
     PORT: process.env.PORT || 4000,
     APP: PACKAGE_JSON.name,
-    APP_PATH: './client'
+    APP_PATH: './'
 };
 
 

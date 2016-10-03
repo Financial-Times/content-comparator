@@ -21,7 +21,7 @@ export class ContentNextComponent {
     label = 'Content Next component';
 
     ngOnInit() {
-        this.ajaxService.get('src/mocks/test.data.mock.json')
+        this.ajaxService.get(CONFIG.PATH.SRC + 'mocks/test.data.mock.json')
             .map(response => <TestData[]> response.json().testData)
             .subscribe(testData => {
                 this.testData = testData;

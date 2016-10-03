@@ -42,8 +42,6 @@ export class ContentV1Component {
                 return image.type === 'wide-format';
             });
 
-        console.warn('aaa', image)
-
         this.article = {
             title: title,
             summary: summary,
@@ -55,7 +53,7 @@ export class ContentV1Component {
     }
 
     ngOnInit() {
-        this.ajaxService.get('src/mocks/content.data.mock.json')
+        this.ajaxService.get(CONFIG.PATH.SRC + 'mocks/content.data.mock.json')
             .map(response => <ContentData> response.json())
             .subscribe(contentData => {
                 this.updateArticle(contentData);

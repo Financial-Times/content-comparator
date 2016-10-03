@@ -10,8 +10,8 @@ const CONFIG = new ConfigService().get();
 @Component({
   selector: 'app',
   styleUrls: [
-      'target/assets/css/bootstrap.min.css',
-      'target/assets/css/style.css'
+      CONFIG.PATH.TARGET + 'assets/css/bootstrap.min.css',
+      CONFIG.PATH.TARGET + 'assets/css/style.css'
   ],
   encapsulation: ViewEncapsulation.None,
   templateUrl: CONFIG.PATH.ROOT + 'app.component.html',

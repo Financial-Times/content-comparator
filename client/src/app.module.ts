@@ -21,7 +21,7 @@ import {ImagesPage} from './pages/images/images.page';
         ListsPage,
         ImagesPage
     ], //components and directives that belong to this module
-    providers: [APP_ROUTING_PROVIDERS, { provide: LocationStrategy, useClass: PathLocationStrategy}],
+    providers: [APP_ROUTING_PROVIDERS, { provide: LocationStrategy, useClass: HashLocationStrategy}],
     bootstrap: [AppComponent] //identifies the root component that Angular should bootstrap when it starts the application
 })
 
