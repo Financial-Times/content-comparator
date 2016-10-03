@@ -31,7 +31,7 @@
     "winston": "*"
   },
   "scripts": {
-    "build": "cd client && npm install && gulp build && cd ..",
+    "build": "cd client && npm install && cd ..",
     "start": "npm run build && node boot",
     "start-dev": "npm run build && node-dev boot",
     "preinstall": "npm i typings -g && npm i gulp -g"
