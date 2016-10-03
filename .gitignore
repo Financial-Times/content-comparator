@@ -5,6 +5,7 @@ node_modules
 client/node_modules
 
 # production
+client/target/js
 
 # misc
 .DS_Store
