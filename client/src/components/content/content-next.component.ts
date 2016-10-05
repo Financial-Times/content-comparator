@@ -49,8 +49,7 @@ export class ContentNextComponent {
         this.uuidService.uuidStream$.subscribe(uuid => {
             const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
 
-            if (pattern.test(uuid)) {
-                console.warn('change', uuid);
+            if (pattern.test(uuid) && uuid !== this.uuid) {
                 this.uuid = uuid;
                 this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
             }

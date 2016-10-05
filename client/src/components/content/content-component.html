@@ -2,7 +2,7 @@
 <div class="article">
     <h4>{{article.title}}</h4>
     <p class="article-summary">{{article.summary}}</p>
-    <div class="article-image" *ngIf="article.image.url || article.image.alt">
+    <div class="article-image" *ngIf="article.image.url">
         <img [src]="article.image.url" [alt]="article.image.alt" />
         <div class="article-time-byline">
             <time>{{article.publishDateTime}}</time>

@@ -16,6 +16,7 @@ function handle(response) {
                 url: mainImage.id + '?apiKey=' + process.env.FT_API_KEY
             }, function (imagesError, imagesResponse, imagesBody) {
                 imagesBody = jsonHandler.parse(imagesBody);
+
                 if (imagesBody && imagesBody.members) {
                     request({
                         url: imagesBody.members[0].id + '?apiKey=' + process.env.FT_API_KEY
@@ -37,16 +38,31 @@ function handle(response) {
         });
     }
 
-    return fetchImage(response.mainImage).then(image => {
+    function getArticleWithImage() {
+        return fetchImage(response.mainImage).then(image => {
+            return {
+                title: response.title,
+                byline: response.byline,
+                summary: null,
+                image: image,
+                body: response.bodyXML,
+                publishDateTime: moment(response.publishedDate).format('MMMM DD, YYYY')
+            };
+        });
+    }
+
+    function getArticleWithoutImage() {
         return {
             title: response.title,
             byline: response.byline,
             summary: null,
-            image: image,
+            image: {},
             body: response.bodyXML,
             publishDateTime: moment(response.publishedDate).format('MMMM DD, YYYY')
         };
-    });
+    }
+
+    return response.mainImage ? getArticleWithImage() : getArticleWithoutImage();
 }
 
 module.exports = {
