@@ -5,7 +5,7 @@
     <div class="article-image" *ngIf="article.image.url || article.image.alt">
         <img [src]="article.image.url" [alt]="article.image.alt" />
         <div class="article-time-byline">
-            <time></time>
+            <time>{{article.publishDateTime}}</time>
             <span class="article-author">by: <em>{{article.byline}}</em></span>
         </div>
     </div>

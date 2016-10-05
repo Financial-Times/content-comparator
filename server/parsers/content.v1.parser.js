@@ -1,5 +1,7 @@
 'use strict';
 
+const moment = require('moment');
+
 function handle(response) {
     const item = response.item,
         lifecycle = item.lifecycle,
@@ -13,7 +15,7 @@ function handle(response) {
             image: image[0],
             byline: item.editorial.byline,
             body: item.body.body,
-            publishDateTime: lifecycle.lastPublishDateTime || lifecycle.initialPublishDateTime
+            publishDateTime: moment(lifecycle.lastPublishDateTime || lifecycle.initialPublishDateTime).format('MMMM DD, YYYY')
         };
 
     return article;

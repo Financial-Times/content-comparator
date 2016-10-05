@@ -57,8 +57,17 @@
                 font-family: 'MetricWeb', sans-serif;
                 font-size: 15px;
                 font-style: normal;
+                font-weight: 600;
                 color: $claret;
             }
+        }
+
+        time {
+            font-family: 'MetricWeb', sans-serif;
+            font-size: 12px;
+            color: $warm-6;
+            text-transform: uppercase;
+            font-weight: 400;
         }
 
     }

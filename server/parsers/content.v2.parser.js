@@ -2,6 +2,7 @@
 
 const Promise = require('promise'),
     request = require('request'),
+    moment = require('moment'),
     jsonHandler = require('../api/common/json-handler');
 
 function handle(response) {
@@ -43,7 +44,7 @@ function handle(response) {
             summary: null,
             image: image,
             body: response.bodyXML,
-            publishDateTime: response.publishedDate
+            publishDateTime: moment(response.publishedDate).format('MMMM DD, YYYY')
         };
     });
 }
