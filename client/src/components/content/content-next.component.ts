@@ -55,10 +55,7 @@ export class ContentNextComponent {
                 this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
             }
 
-        // this.ajaxService.get(this.API_ENDPOINT + 'content/next/b7b871f6-8a89-11e4-8e24-00144feabdc0')
-        //     .map(response => <Article> response.json())
-        //     .subscribe(article => {
-        //         this.article = article;
-        //     });
+        });
+
     }
 }
