@@ -46,7 +46,7 @@ function handle(response) {
         return {
             title: response.title,
             byline: response.byline,
-            summary: null,
+            summary: response.standfirst,
             image: image,
             body: response.bodyXML,
             publishDateTime: datetimeParser.handle(response.publishedDate)
