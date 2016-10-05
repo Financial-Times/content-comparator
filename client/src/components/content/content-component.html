@@ -1,12 +1,21 @@
-<h3>{{label}}</h3>
+<h3 class="column-label">{{label}}</h3>
 <div class="article">
-    <h4>{{article.title}}</h4>
-    <p class="article-summary">{{article.summary}}</p>
+    <div class="article-theme-myftbtn">
+        <span class="article-theme" *ngIf="article.theme">{{article.theme}}</span>
+        <span class="missing-info" *ngIf="!article.theme">no article primary theme</span>
+        <em class="fake-btn"></em>
+    </div>
+    <h4 class="article-title">{{article.title}}</h4>
+    <p class="article-summary" *ngIf="article.summary">{{article.summary}}</p>
+    <p class="no-article-summary missing-info" *ngIf="!article.summary">No article summary / excerpt</p>
     <div class="article-image" *ngIf="article.image.url">
         <img [src]="article.image.url" [alt]="article.image.alt" />
         <div class="article-image-title">
             <span *ngIf="article.image.title">{{article.image.title}}</span>
             <span *ngIf="article.image.copyright">{{article.image.copyright.notice}}</span>
+        </div>
+        <div class="article-social-line missing-info">
+            SOCIAL NETWORK
         </div>
         <div class="article-time-byline">
             <time>{{article.publishDateTime}}</time>

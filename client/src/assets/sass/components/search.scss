@@ -5,6 +5,10 @@
     width: 100%;
     padding: 10px;
 
+    @media all and (max-width: 991px) {
+        margin-bottom: 15px;
+    }
+
     legend {
         color: $grey-tint1;
         margin-bottom: 10px;

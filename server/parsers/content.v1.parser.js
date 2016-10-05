@@ -5,12 +5,15 @@ const datetimeParser = require('./datetime.parser');
 function handle(response) {
     const item = response.item,
         lifecycle = item.lifecycle,
+        metadata = item.metadata,
+        theme = metadata.primaryTheme ? metadata.primaryTheme.term.name : null,
         images = item.images.filter(img => {
             return img.type === 'wide-format';
         }),
         article = {
             title: item.title.title,
             summary: item.summary.excerpt,
+            theme: theme,
             image: images.length ? {
                 url: images[0].url,
                 alt: images[0].alt,

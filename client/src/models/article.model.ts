@@ -3,6 +3,7 @@ export class Article {
     summary: string;
     body: string;
     byline: string;
+    theme: string;
     image: Object;
     publishDateTime: string;
 }

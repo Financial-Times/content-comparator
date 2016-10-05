@@ -27,6 +27,7 @@ export class ContentV1Component {
             title: null,
             summary: null,
             byline: null,
+            theme: null,
             image: {},
             body: null,
             publishDateTime: null

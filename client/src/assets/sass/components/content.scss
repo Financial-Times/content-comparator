@@ -1,3 +1,15 @@
+.column-label {
+    height: 36px;
+
+    @media all and (max-width: 991px) {
+        height: auto;
+    }
+
+    @media all and (min-width: 1600px) {
+        height: 41px;
+    }
+}
+
 .article {
 
     font-family: 'MetricWeb', sans-serif;
@@ -9,18 +21,65 @@
 
     overflow: hidden;
 
-    h4 {
+    padding: 0 10px;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .article-title {
         font-family: 'FinancierDisplayWeb', serif;
         font-size: 26px;
+        margin: 7px 0;
+        line-height: 31px;
+    }
+
+    .article-theme-myftbtn {
+        padding-top: 10px;
+
+        .missing-info {
+            line-height: 24px;
+            display: inline-block;
+            margin-right: 12px;
+        }
+
+        .fake-btn {
+            vertical-align: middle;
+        }
+
+        .article-theme {
+            font-size: 20px;
+            font-family: 'MetricWeb', sans-serif;
+            font-weight: 600;
+            color: $claret-1;
+            margin-right: 12px;
+        }
+    }
+
+    .article-summary,
+    .no-article-summary {
+        font-family: 'MetricWeb', sans-serif;
+        font-size: 20px;
+        line-height: 24px;
     }
 
     .article-summary {
-        font-family: 'MetricWeb', sans-serif;
-        font-size: 20px;
+        margin-bottom: 7px;
+    }
+
+    .no-article-summary {
+        margin-bottom: 10px;
+    }
+
+    .no-article-summary {
+        line-height: 48px;
+        text-align: center;
     }
 
     .article-image {
         position: relative;
+        padding-top: 20px;
 
         img {
             width: 100%;
@@ -53,13 +112,21 @@
         }
     }
 
-    .article-time-byline {
-
-        margin: 10px 0;
-        padding: 5px 0;
+    .article-social-line {
+        margin: 17px 0 11px 0;
+        padding: 0;
         border: solid 1px $pink-tint3;
         border-left: none;
         border-right: none;
+        height: 34px;
+        line-height: 34px;
+        text-align: center;
+    }
+
+    .article-time-byline {
+
+        margin: 5px 0 15px 0;
+        padding: 0;
 
         .article-author {
             font-family: 'MetricWeb', sans-serif;
@@ -70,8 +137,7 @@
                 font-family: 'MetricWeb', sans-serif;
                 font-size: 15px;
                 font-style: normal;
-                font-weight: 600;
-                color: $claret;
+                color: $claret-1;
             }
         }
 
@@ -89,4 +155,26 @@
 .open-at-ft-link {
     display: block;
     text-align: center;
+}
+
+.missing-info,
+.article .missing-info {
+    color: $claret-1;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-family: 'MetricWeb', sans-serif;
+}
+
+.fake-btn {
+    display: inline-block;
+    font-size: 12px;
+    background: hsla(0,0%,100%,.4);
+    border: 1px solid rgba(39,117,123,.15);
+    border-radius: 3px;
+    font-style: normal;
+    padding: 3px 8px;
+    width: 98px;
+    height: 24px;
+    text-align: right;
+    font-family: 'MetricWeb', sans-serif;
 }

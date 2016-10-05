@@ -6,7 +6,7 @@ const Promise = require('promise'),
     datetimeParser = require('./datetime.parser');
 
 function handle(response) {
-
+    console.log('RESSS', response);
     function fetchImage(mainImage) {
 
         let image = {};
@@ -47,9 +47,10 @@ function handle(response) {
             title: response.title,
             byline: response.byline,
             summary: response.standfirst,
+            theme: null,
             image: image,
             body: response.bodyXML,
-            publishDateTime: datetimeParser.handle(response.publishedDate)
+            publishDateTime: datetimeParser.handle(response.lastModified || response.publishedDate)
         };
     }
 
