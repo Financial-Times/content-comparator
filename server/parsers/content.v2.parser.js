@@ -7,19 +7,17 @@ const Promise = require('promise'),
 function handle(response) {
 
     function fetchImage(mainImage) {
-        const uuid = mainImage.id.replace('http', 'https').replace(process.env.FT_API_URL + 'content/', '');
 
         let image = {};
 
         return new Promise(function (resolve, reject) {
             request({
-                url: process.env.FT_API_URL + uuid + '?apiKey=' + process.env.FT_API_KEY
+                url: mainImage.id + '?apiKey=' + process.env.FT_API_KEY
             }, function (imagesError, imagesResponse, imagesBody) {
                 imagesBody = jsonHandler.parse(imagesBody);
                 if (imagesBody && imagesBody.members) {
-                    const memberUuid = imagesBody.members[0].id.replace('http', 'https').replace(process.env.FT_API_URL + 'content/', '');
                     request({
-                        url: process.env.FT_API_URL + 'content/' + memberUuid + '?apiKey=' + process.env.FT_API_KEY
+                        url: imagesBody.members[0].id + '?apiKey=' + process.env.FT_API_KEY
                     }, function (imageError, imageResponse, imageBody) {
                         image = {
                             url: jsonHandler.parse(imageBody).binaryUrl
