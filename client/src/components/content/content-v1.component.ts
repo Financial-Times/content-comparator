@@ -1,8 +1,8 @@
-import {Component} from '@angular/core';
+import {Component, Inject} from '@angular/core';
 import ConfigService from '../../services/config.service';
-import {AjaxService} from '../../services/ajax.service';
 
-import {ContentData} from '../../models/content.data.model';
+import {UuidService} from '../../services/uuid.service';
+import {AjaxService} from '../../services/ajax.service';
 import {Article} from '../../models/article.model';
 
 const CONFIG = new ConfigService().get();
@@ -10,53 +10,51 @@ const CONFIG = new ConfigService().get();
 @Component({
   moduleId: module.id,
   selector: 'contentv1-component',
-  templateUrl: 'content-v1.component.html',
+  templateUrl: 'content-component.html',
   providers: [AjaxService]
 })
 
 export class ContentV1Component {
-    contentData: ContentData;
+    uuid: string;
     article: Article;
 
-    constructor(private ajaxService : AjaxService) {
+    constructor(
+        private ajaxService : AjaxService,
+        private uuidService: UuidService,
+        @Inject('API_ENDPOINT') private API_ENDPOINT : string
+    ) {
         this.article = {
             title: null,
             summary: null,
+            byline: null,
             image: {},
             body: null,
-            initialPublishDateTime: null,
-            lastPublishDateTime: null
+            publishDateTime: null
         };
     }
 
-    label = 'Content V1 component';
+    label = 'Content V1 API';
 
-    updateArticle(data) {
-        const article = data.item,
-            title = article.title.title,
-            summary = article.summary.excerpt,
-            body = article.body.body,
-            lifecycle = article.lifecycle,
-            images = article.images,
-            image = images.filter(image => {
-                return image.type === 'wide-format';
+    fetch() {
+        this.ajaxService.get(this.API_ENDPOINT + 'content/v1/' + this.uuid)
+            .map(response => <Article> response.json())
+            .subscribe(article => {
+                this.article = article;
             });
-
-        this.article = {
-            title: title,
-            summary: summary,
-            image: image[0],
-            body: body,
-            initialPublishDateTime: lifecycle.initialPublishDateTime,
-            lastPublishDateTime: lifecycle.lastPublishDateTime
-        };
     }
 
     ngOnInit() {
-        this.ajaxService.get(CONFIG.PATH.SRC + 'mocks/content.data.mock.json')
-            .map(response => <ContentData> response.json())
-            .subscribe(contentData => {
-                this.updateArticle(contentData);
-            });
+        this.uuid = this.uuidService.uuid;
+        this.fetch();
+
+        this.uuidService.uuidStream$.subscribe(uuid => {
+            const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
+
+            if (pattern.test(uuid)) {
+                console.warn('change', uuid);
+                this.uuid = uuid;
+                this.fetch();
+            }
+        });
     }
 }

@@ -13,7 +13,11 @@
 
     function initializeServer() {
         app.use(cors);
-        app.use(authS3O);
+
+        if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
+            app.use(authS3O);
+        }
+
         app.use(bodyParser.urlencoded({
             extended: false
         }));
@@ -24,6 +28,7 @@
         initializeServer();
 
         app.all('/api/:command', API.handle);
+        app.all('/api/:command/:category/:id', API.handle);
 
         app.listen(CONFIG.PORT, function () {
             winston.logger.info('[boot] Running server on port ' + CONFIG.PORT + '...');

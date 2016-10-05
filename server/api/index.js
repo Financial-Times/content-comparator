@@ -4,6 +4,7 @@ const responder = require('./common/responder'),
     winston = require('../winston-logger'),
     apiRoutes = {
         GET: {
+            content: require('./get/content'),
             test: require('./get/test')
         },
         POST: {}

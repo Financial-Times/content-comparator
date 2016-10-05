@@ -3,6 +3,12 @@
     font-family: 'MetricWeb', sans-serif;
     font-size: medium;
 
+    border: solid 1px $pink-tint3;
+    border-left: none;
+    border-right: none;
+
+    overflow: hidden;
+
     h4 {
         font-family: 'FinancierDisplayWeb', serif;
         font-size: 26px;
@@ -32,5 +38,28 @@
     p {
         font-family:  'Georgia', serif;
         font-size: 18px;
+    }
+
+    .article-time-byline {
+
+        margin: 10px 0;
+        padding: 5px 0;
+        border: solid 1px $pink-tint3;
+        border-left: none;
+        border-right: none;
+
+        .article-author {
+            font-family: 'MetricWeb', sans-serif;
+            font-size: 15px;
+            color: $grey-tint5;
+
+            em {
+                font-family: 'MetricWeb', sans-serif;
+                font-size: 15px;
+                font-style: normal;
+                color: $claret;
+            }
+        }
+
     }
 }

@@ -16,7 +16,9 @@ const CONFIG = new ConfigService().get();
   encapsulation: ViewEncapsulation.None,
   templateUrl: CONFIG.PATH.ROOT + 'app.component.html',
   directives: [ROUTER_DIRECTIVES],
-  providers: [HTTP_PROVIDERS]
+  providers: [
+    HTTP_PROVIDERS
+  ]
 })
 
 export class AppComponent { }

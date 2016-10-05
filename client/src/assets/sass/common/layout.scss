@@ -28,12 +28,17 @@ body a:focus {
 }
 
 .wrapper {
-    padding-top: 24px;
+    padding-top: 20px;
 }
 
 .page-wrapper {
     background: $pink;
     padding: 24px;
+    position: relative;
+
+    .col {
+        height: 100%;
+    }
 }
 
 .navigation {
