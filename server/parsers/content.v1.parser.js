@@ -1,6 +1,6 @@
 'use strict';
 
-const moment = require('moment');
+const datetimeParser = require('./datetime.parser');
 
 function handle(response) {
     const item = response.item,
@@ -11,12 +11,16 @@ function handle(response) {
         article = {
             title: item.title.title,
             summary: item.summary.excerpt,
-            image: images.length ? images[0] : {},
+            image: images.length ? {
+                url: images[0].url,
+                alt: images[0].alt,
+                title: images[0].caption,
+                copyright: '&copy; ' + images[0].source
+            } : {},
             byline: item.editorial.byline,
             body: item.body.body,
-            publishDateTime: moment(lifecycle.lastPublishDateTime || lifecycle.initialPublishDateTime).format('MMMM DD, YYYY')
+            publishDateTime: datetimeParser.handle(lifecycle.lastPublishDateTime || lifecycle.initialPublishDateTime)
         };
-
     return article;
 }
 

@@ -4,6 +4,10 @@
     <p class="article-summary">{{article.summary}}</p>
     <div class="article-image" *ngIf="article.image.url">
         <img [src]="article.image.url" [alt]="article.image.alt" />
+        <div class="article-image-title">
+            <span *ngIf="article.image.title">{{article.image.title}}</span>
+            <span *ngIf="article.image.copyright">{{article.image.copyright.notice}}</span>
+        </div>
         <div class="article-time-byline">
             <time>{{article.publishDateTime}}</time>
             <span class="article-author">by: <em>{{article.byline}}</em></span>

@@ -2,8 +2,8 @@
 
 const Promise = require('promise'),
     request = require('request'),
-    moment = require('moment'),
-    jsonHandler = require('../api/common/json-handler');
+    jsonHandler = require('../api/common/json-handler'),
+    datetimeParser = require('./datetime.parser');
 
 function handle(response) {
 
@@ -21,8 +21,12 @@ function handle(response) {
                     request({
                         url: imagesBody.members[0].id + '?apiKey=' + process.env.FT_API_KEY
                     }, function (imageError, imageResponse, imageBody) {
+                        imageBody = jsonHandler.parse(imageBody);
                         image = {
-                            url: jsonHandler.parse(imageBody).binaryUrl
+                            url: imageBody.binaryUrl,
+                            alt: imageBody.description,
+                            title: imageBody.title,
+                            copyright: imageBody.copyright
                         };
                         resolve(image);
                     });
@@ -38,28 +42,25 @@ function handle(response) {
         });
     }
 
-    function getArticleWithImage() {
-        return fetchImage(response.mainImage).then(image => {
-            return {
-                title: response.title,
-                byline: response.byline,
-                summary: null,
-                image: image,
-                body: response.bodyXML,
-                publishDateTime: moment(response.publishedDate).format('MMMM DD, YYYY')
-            };
-        });
-    }
-
-    function getArticleWithoutImage() {
+    function getArticle(image) {
         return {
             title: response.title,
             byline: response.byline,
             summary: null,
-            image: {},
+            image: image,
             body: response.bodyXML,
-            publishDateTime: moment(response.publishedDate).format('MMMM DD, YYYY')
+            publishDateTime: datetimeParser.handle(response.publishedDate)
         };
+    }
+
+    function getArticleWithImage() {
+        return fetchImage(response.mainImage).then(image => {
+            return getArticle(image);
+        });
+    }
+
+    function getArticleWithoutImage() {
+        return getArticle({});
     }
 
     return response.mainImage ? getArticleWithImage() : getArticleWithoutImage();

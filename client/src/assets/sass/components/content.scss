@@ -40,6 +40,19 @@
         font-size: 18px;
     }
 
+    .article-image-title {
+        margin-top: 4px;
+
+        span {
+            font-family: 'MetricWeb', sans-serif;
+            font-size: 15px;
+            font-weight: 400;
+            font-style: italic;
+            color: #505050;
+            line-height: 17px;
+        }
+    }
+
     .article-time-byline {
 
         margin: 10px 0;
