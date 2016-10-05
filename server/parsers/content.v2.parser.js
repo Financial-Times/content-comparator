@@ -6,7 +6,7 @@ const Promise = require('promise'),
     datetimeParser = require('./datetime.parser');
 
 function handle(response) {
-    console.log('RESSS', response);
+
     function fetchImage(mainImage) {
 
         let image = {};
