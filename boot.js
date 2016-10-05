@@ -15,7 +15,7 @@
         app.use(cors);
 
         if (process.env.NODE_ENV === 'prod' || process.env.NODE_ENV === 'staging') {
-            app.use(authS3O);
+            //app.use(authS3O);
         }
 
         app.use(bodyParser.urlencoded({
