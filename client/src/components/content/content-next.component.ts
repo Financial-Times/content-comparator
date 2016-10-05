@@ -4,7 +4,6 @@ import ConfigService from '../../services/config.service';
 
 import {UuidService} from '../../services/uuid.service';
 import {AjaxService} from '../../services/ajax.service';
-import {Article} from '../../models/article.model';
 
 const CONFIG = new ConfigService().get();
 
@@ -18,7 +17,6 @@ const CONFIG = new ConfigService().get();
 export class ContentNextComponent {
     uuid: string;
     sanitizer: DomSanitizationService;
-    article: Article;
     iframeUrl: SafeResourceUrl;
 
     constructor(
@@ -27,16 +25,6 @@ export class ContentNextComponent {
         @Inject('API_ENDPOINT') private API_ENDPOINT : string,
         sanitizer: DomSanitizationService
     ) {
-
-        this.article = {
-            title: null,
-            summary: null,
-            byline: null,
-            image: {},
-            body: null,
-            publishDateTime: null
-        };
-
         this.sanitizer = sanitizer;
     }
 
