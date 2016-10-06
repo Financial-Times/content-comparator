@@ -17,7 +17,7 @@ function convert(index, element) {
                 articleBody = jsonHandler.parse(articleBody);
                 resolve({
                     element: element,
-                    replacement: ' <a href="' + articleBody.webUrl + '">' + $(element).text() + '</a>'
+                    replacement: ' <a href="' + articleBody.webUrl + '" trackable="link">' + $(element).text() + '</a>'
                 });
             } else {
                 reject(articleError);

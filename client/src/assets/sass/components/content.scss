@@ -28,6 +28,14 @@
         height: auto;
     }
 
+    .article-body {
+        a {
+            border-bottom: 1px dotted #27757b;
+            font-family: 'Georgia', serif;
+            font-size: 18px;
+        }
+    }
+
     .article-title {
         font-family: 'FinancierDisplayWeb', serif;
         font-size: 26px;
