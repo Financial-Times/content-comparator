@@ -1,7 +1,8 @@
-import {Component, Inject} from '@angular/core';
+import {ViewChild, Component, Inject, ElementRef} from '@angular/core';
 import ConfigService from '../../services/config.service';
 
 import {UuidService} from '../../services/uuid.service';
+import {ColumnHeightService} from '../../services/column-height.service';
 import {AjaxService} from '../../services/ajax.service';
 import {Article} from '../../models/article.model';
 
@@ -15,12 +16,16 @@ const CONFIG = new ConfigService().get();
 })
 
 export class ContentV1Component {
-    uuid: string;
+    @ViewChild('column') column:ElementRef;
+
     article: Article;
+    uuid: string;
+    columnHeightTriggered: boolean;
 
     constructor(
         private ajaxService : AjaxService,
         private uuidService: UuidService,
+        private columnHeightService: ColumnHeightService,
         @Inject('API_ENDPOINT') private API_ENDPOINT : string
     ) {
         this.article = {
@@ -42,6 +47,16 @@ export class ContentV1Component {
             .subscribe(article => {
                 this.article = article;
             });
+    }
+
+    ngAfterViewChecked() {
+        if (!this.columnHeightTriggered) {
+            this.columnHeightTriggered = true;
+            setTimeout(() => {
+                this.columnHeightService.updateHeight(this.column.nativeElement.offsetHeight + 'px');
+                this.columnHeightTriggered = false;
+            }, 500);
+        }
     }
 
     ngOnInit() {

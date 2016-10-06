@@ -3,7 +3,8 @@
 const Promise = require('promise'),
     request = require('request'),
     jsonHandler = require('../api/common/json-handler'),
-    datetimeParser = require('./datetime.parser');
+    datetimeParser = require('./datetime.parser'),
+    bodyV2parser = require('./body.v2.parser');
 
 function handle(response) {
 
@@ -43,15 +44,17 @@ function handle(response) {
     }
 
     function getArticle(image) {
-        return {
-            title: response.title,
-            byline: response.byline,
-            summary: response.standfirst,
-            theme: null,
-            image: image,
-            body: response.bodyXML,
-            publishDateTime: datetimeParser.handle(response.lastModified || response.publishedDate)
-        };
+        return bodyV2parser.handle(response.bodyXML, image.url).then(body => {
+            return {
+                title: response.title,
+                byline: response.byline,
+                summary: response.standfirst,
+                theme: null,
+                image: image,
+                body: body,
+                publishDateTime: datetimeParser.handle(response.lastModified || response.publishedDate)
+            };
+        });
     }
 
     function getArticleWithImage() {

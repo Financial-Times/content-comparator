@@ -3,6 +3,7 @@ import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser
 import ConfigService from '../../services/config.service';
 
 import {UuidService} from '../../services/uuid.service';
+import {ColumnHeightService} from '../../services/column-height.service';
 import {AjaxService} from '../../services/ajax.service';
 
 const CONFIG = new ConfigService().get();
@@ -16,12 +17,16 @@ const CONFIG = new ConfigService().get();
 
 export class ContentNextComponent {
     uuid: string;
+    columnHeight: string;
+    height: string;
     sanitizer: DomSanitizationService;
     iframeUrl: SafeResourceUrl;
+    iframeStyle: string;
 
     constructor(
         private ajaxService : AjaxService,
         private uuidService: UuidService,
+        private columnHeightService: ColumnHeightService,
         @Inject('API_ENDPOINT') private API_ENDPOINT : string,
         sanitizer: DomSanitizationService
     ) {
@@ -42,6 +47,12 @@ export class ContentNextComponent {
                 this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
             }
 
+        });
+
+        this.columnHeight = this.columnHeightService.height;
+
+        this.columnHeightService.heightStream$.subscribe(height => {
+            this.columnHeight = this.columnHeightService.height;
         });
 
     }

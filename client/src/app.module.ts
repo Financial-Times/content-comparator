@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent}  from './app.component';
 import {APP_ROUTES, APP_ROUTING_PROVIDERS} from './app.routing';
 import {UuidService} from './services/uuid.service';
+import {ColumnHeightService} from './services/column-height.service';
 
 import {SearchComponent} from './components/search/search.component';
 
@@ -30,6 +31,7 @@ import {ImagesPage} from './pages/images/images.page';
     providers: [
         APP_ROUTING_PROVIDERS,
         UuidService,
+        ColumnHeightService,
         {
             provide: LocationStrategy,
             useClass: HashLocationStrategy
