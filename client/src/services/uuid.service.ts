@@ -42,6 +42,7 @@ export class UuidService {
 
     broadcastUuidChange(text:string) {
         this._uuid.next(text);
+        document.documentElement.setAttribute('data-content-id', text);
     }
 
     noRandomize() {

@@ -12,6 +12,7 @@ export class SearchComponent {
     uuid: string;
     legend: string;
     router: Router;
+    pattern: RegExp;
 
     constructor(
         private uuidService: UuidService,
@@ -21,9 +22,11 @@ export class SearchComponent {
 
         this.router.events.subscribe((event: NavigationEvent) => {
             if (event instanceof NavigationEnd) {
-                this.legend = 'Look up ' + this.router.url.replace('/', '') + ' by UUID';
+                this.legend = 'Look up ' + (this.router.url.replace(this.pattern, '')).replace(/\//g, '') + ' by UUID';
             }
         });
+
+        this.pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
     }
 
     onUuidChange(newUuid) {
@@ -34,9 +37,7 @@ export class SearchComponent {
         this.uuid = this.uuidService.uuid;
 
         this.uuidService.uuidStream$.subscribe(uuid => {
-            const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
-
-            if (pattern.test(uuid) && uuid !== this.uuid) {
+              if (this.pattern.test(uuid) && uuid !== this.uuid) {
                 this.uuid = uuid;
             }
         });

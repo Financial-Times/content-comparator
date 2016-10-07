@@ -1,6 +1,4 @@
 import {ViewChild, Component, Inject, ElementRef} from '@angular/core';
-import {Router, ActivatedRoute, Params} from '@angular/router';
-
 import ConfigService from '../../services/config.service';
 
 import {UuidService} from '../../services/uuid.service';
@@ -22,12 +20,9 @@ export class ContentV1Component {
 
     article: Article;
     uuid: string;
-    routeUuid: string;
     columnHeightTriggered: boolean;
 
     constructor(
-        private router: Router,
-        private route: ActivatedRoute,
         private ajaxService : AjaxService,
         private uuidService: UuidService,
         private columnHeightService: ColumnHeightService,
@@ -65,15 +60,6 @@ export class ContentV1Component {
     }
 
     ngOnInit() {
-        this.route.params.forEach((params: Params) => {
-            this.routeUuid = params['id'];
-        });
-
-        if (this.routeUuid) {
-            this.uuidService.noRandomize();
-            this.uuidService.updateUuid(this.routeUuid);
-        }
-
         this.uuid = this.uuidService.uuid;
         this.fetch();
 
