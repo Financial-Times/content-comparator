@@ -7,6 +7,10 @@ import {ImagesPage} from './pages/images/images.page';
 
 export const APP_ROUTES: Routes = [
     {
+        path: 'content/:id',
+        component: ContentPage
+    },
+    {
         path: 'content',
         component: ContentPage
     },

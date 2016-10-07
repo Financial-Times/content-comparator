@@ -5,7 +5,8 @@ import {AjaxService} from './ajax.service';
 
 @Injectable()
 export class UuidService {
-    uuid: string = '9dcfe6b6-8bc2-11e6-8aa5-f79f5696c731';
+    uuid: string;
+    randomize: boolean = true;
 
     constructor(
         private ajaxService : AjaxService,
@@ -28,16 +29,22 @@ export class UuidService {
         .map(response => response.json())
         .catch(this.handleError)
         .subscribe(response => {
-            this.updateUuid(response.id);
+            if (this.randomize) {
+                this.updateUuid(response.id);
+            }
         });
     }
 
-    updateUuid(uuid: string){
+    updateUuid(uuid: string) {
         this.uuid = uuid;
         this.broadcastUuidChange(uuid);
     }
 
     broadcastUuidChange(text:string) {
         this._uuid.next(text);
+    }
+
+    noRandomize() {
+        this.randomize = false;
     }
 }
