@@ -15,6 +15,7 @@
             <div class="article-image-title">
                 <span *ngIf="article.image.title">{{article.image.title}}</span>
                 <span *ngIf="article.image.copyright">{{article.image.copyright.notice}}</span>
+                <span *ngIf="!article.image.copyright || !article.image.copyright.notice" class="missing-info">no image copyright notice</span>
             </div>
             <div class="article-social-line missing-info">
                 SOCIAL NETWORK

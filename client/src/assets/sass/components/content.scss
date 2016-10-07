@@ -32,7 +32,33 @@
         a {
             border-bottom: 1px dotted #27757b;
             font-family: 'Georgia', serif;
-            font-size: 18px;
+            font-size: 18px/1.4;
+        }
+
+        blockquote {
+            color: #505050;
+            position: relative;
+            clear: left;
+            margin: 24px 0 16px;
+            width: 100%;
+            border-left: 1px solid #cec6b9;
+            padding: 32px 16px 0;
+
+            &:before {
+                background-image: url("https://next-geebee.ft.com/image/v1/images/raw/fticon:pullquote?source=o-icons&tint=%23505050,%23505050&format=svg");
+                width: 26px;
+                height: 26px;
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: 50%;
+                background-color: transparent;
+                vertical-align: baseline;
+                position: absolute;
+                top: 0;
+                left: 16px;
+                content: '';
+            }
         }
     }
 
@@ -166,7 +192,8 @@
 }
 
 .missing-info,
-.article .missing-info {
+.article .missing-info,
+.article .article-image-title .missing-info {
     color: $claret-1;
     font-size: 12px;
     text-transform: uppercase;
@@ -190,4 +217,20 @@
 .content-next-iframe {
     width: 100%;
     border: none;
+}
+
+.ft-subhead {
+    font-family: 'MetricWeb', sans-serif;
+    font-size: 20px;
+    line-height: 22px;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.ft-bold {
+    font-weight: 600;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
 }

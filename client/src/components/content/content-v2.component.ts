@@ -1,5 +1,6 @@
 import {ViewChild, Component, Inject, ElementRef} from '@angular/core';
 import ConfigService from '../../services/config.service';
+import {Observable} from 'rxjs/Rx';
 
 import {UuidService} from '../../services/uuid.service';
 import {ColumnHeightService} from '../../services/column-height.service';
@@ -40,9 +41,15 @@ export class ContentV2Component {
 
     label = 'Content V2 API';
 
+    private handleError(error: any) {
+        let errMsg = (error.message) ? error.message : error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+        return Observable.throw(errMsg);
+    }
+
     fetch() {
         this.ajaxService.get(this.API_ENDPOINT + 'content/v2/' + this.uuid)
             .map(response => <Article> response.json())
+            .catch(this.handleError)
             .subscribe(article => {
                 this.article = article;
             });
@@ -60,7 +67,6 @@ export class ContentV2Component {
 
         this.uuidService.uuidStream$.subscribe(uuid => {
             const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
-
             if (pattern.test(uuid) && uuid !== this.uuid) {
                 this.uuid = uuid;
                 this.fetch();

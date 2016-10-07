@@ -17,10 +17,6 @@ module.exports = function handleTestCall(clientRequest, clientResponse) {
             'v2': {
                 'url': process.env.FT_API_URL + process.env.FT_V2_API_ROUTE + uuid + '?apiKey=' + process.env.FT_API_KEY,
                 parser: require('../../parsers/content.v2.parser')
-            },
-            'next': {
-                'url': process.env.FT_API_URL + 'content/items/v1/' + uuid + '?apiKey=' + process.env.FT_API_KEY,
-                'parser': require('../../parsers/content.next.parser')
             }
         };
 
@@ -30,11 +26,7 @@ module.exports = function handleTestCall(clientRequest, clientResponse) {
 
     function fetch(url) {
         return new Promise(function (resolve, reject) {
-            request(url, {
-                headers: {
-                    'Authorization': process.env.JIRA_authorization
-                }
-            }, function (filterErr, response) {
+            request(url, function (filterErr, response) {
                 if (filterErr) {
                     reject(filterErr);
                 } else {
