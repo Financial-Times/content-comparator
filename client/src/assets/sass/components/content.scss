@@ -147,6 +147,12 @@
             figure {
                 margin-bottom: 5px;
             }
+
+            figcaption {
+                &.missing-info {
+                    padding-left: 16px;
+                }
+            }
         }
 
         .promo-headline {
