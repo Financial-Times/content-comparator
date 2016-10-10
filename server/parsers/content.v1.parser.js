@@ -1,8 +1,10 @@
 'use strict';
 
-const datetimeParser = require('./datetime.parser');
+const datetimeParser = require('./datetime.parser'),
+    bodyV1parser = require('./body.v1.parser');
 
 function handle(response) {
+
     const item = response.item,
         lifecycle = item.lifecycle,
         metadata = item.metadata,
@@ -10,6 +12,7 @@ function handle(response) {
         images = item.images.filter(img => {
             return img.type === 'wide-format';
         }),
+        assets = response.item.assets,
         article = {
             title: item.title.title,
             summary: item.summary.excerpt,
@@ -21,7 +24,7 @@ function handle(response) {
                 copyright: '&copy; ' + images[0].source
             } : {},
             byline: item.editorial.byline,
-            body: item.body.body,
+            body: bodyV1parser.handle(item.body.body, assets),
             publishDateTime: datetimeParser.handle(lifecycle.lastPublishDateTime || lifecycle.initialPublishDateTime)
         };
     return article;

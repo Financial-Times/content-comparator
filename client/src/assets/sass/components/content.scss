@@ -35,8 +35,35 @@
             font-size: 18px/1.4;
         }
 
+        figure {
+            margin: 0 auto 1em;
+            figcaption {
+                font-family: 'MetricWeb', sans-serif;
+                font-size: 15px;
+                line-height: 17px;
+                font-weight: 400;
+                font-style: italic;
+                color: $grey-tint4;
+                margin-top: 0.5em;
+            }
+        }
+
+        .ft-italic,
+        em {
+            font-style: italic;
+            font-size: 18px / 1.4;
+            font-family: 'Georgia', serif;
+        }
+
+        .ft-bold,
+        strong {
+            font-weight: 600;
+            font-size: 18px / 1.4;
+            font-family: 'Georgia', serif;
+        }
+
         blockquote {
-            color: #505050;
+            color: $grey-tint4;
             position: relative;
             clear: left;
             margin: 24px 0 16px;
@@ -58,6 +85,99 @@
                 top: 0;
                 left: 16px;
                 content: '';
+            }
+
+            &.n-content-pullquote {
+                margin: 23px 0 16px;
+                clear: left;
+                padding: 16px 0;
+                width: 100%;
+                border: 1px solid #cec6b9;
+                float: left;
+
+                &:before {
+                    top: -16px;
+                }
+
+                .n-content-pullquote__content {
+                    padding-left: 16px;
+                    padding-right: 16px;
+
+                    p {
+                        margin: 0;
+                    }
+                }
+            }
+
+            footer {
+                font-size: 14px;
+                line-height: 16px;
+                font-family: 'MetricWeb', sans-serif;
+                font-weight: 600;
+                display: block;
+                color: #505050;
+
+                &:before {
+                    content: '';
+                }
+            }
+        }
+    }
+
+    .promo-box {
+        float: left;
+        clear: left;
+        margin: 24px 0 16px;
+        padding: 16px 0;
+        width: 100%;
+        border: 1px solid #cec6b9;
+
+        .promo-title {
+            margin: -30px 0 0 10px;
+            font-size: 20px;
+            line-height: 24px;
+            font-family: 'FinancierDisplayWeb', serif;
+            background: #fff1e0;
+            color: #505050;
+            padding: 0 10px;
+            float: left;
+        }
+
+        .promo-image {
+            figure {
+                margin-bottom: 5px;
+            }
+        }
+
+        .promo-headline {
+            clear: both;
+            margin: 0 16px 8px 16px;
+            a {
+                p {
+                    margin: 0;
+                    padding: 0;
+                    display: inline;
+                    font-family: 'MetricWeb', sans-serif;
+                    font-size: 21px;
+                    font-weight: 600;
+                    line-height: 27px;
+                }
+            }
+
+            a {
+                word-wrap: break-word;
+                font-family: 'MetricWeb', sans-serif;
+                font-size: 21px;
+                font-weight: 600;
+                line-height: 27px;
+                border-bottom: 1px dotted #27757b;
+            }
+        }
+
+        .promo-intro {
+            padding: 0 16px;
+            p {
+                margin-bottom: 0;
             }
         }
     }

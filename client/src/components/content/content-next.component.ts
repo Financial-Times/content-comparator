@@ -54,6 +54,5 @@ export class ContentNextComponent {
         this.columnHeightService.heightStream$.subscribe(height => {
             this.columnHeight = this.columnHeightService.height;
         });
-
     }
 }

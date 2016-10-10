@@ -4,7 +4,7 @@ const url = require('url'),
     cheerio = require('cheerio'),
     Promise = require('promise'),
     articleConverter = require('../converters/article.converter'),
-    imagesetConverter = require('../converters/imageset.converter');
+    imagesetConverter = require('../converters/imageset.v2.converter');
 
 function determineType(element) {
     const typePath = url.parse(element.attribs.type).path,
@@ -32,21 +32,21 @@ function handle(body, mainImageUrl) {
     let actions = ftElements.map((index, element) => {
         const type = determineType(element);
 
-        let callback;
+        let convert;
 
         switch (type) {
         case 'article':
-            callback = articleConverter.convert;
+            convert = articleConverter.convert;
             break;
         case 'imageset':
-            callback = imagesetConverter.convert;
+            convert = imagesetConverter.convert;
             break;
         default:
-            callback = unhandledType;
+            convert = unhandledType;
             break;
         }
 
-        return callback(index, element, mainImageUrl);
+        return convert(index, element, mainImageUrl);
     });
 
     return Promise.all(actions).then((promises) => {
