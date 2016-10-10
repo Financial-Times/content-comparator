@@ -3,7 +3,7 @@
 const cheerio = require('cheerio');
 
 function replacement(img) {
-    let figCaption = img.attribs.title ? `<figcaption>${img.attribs.title}</figcaption>` : '<figcaption class="missing-info">no title</figcaption>';
+    let figCaption = img.attribs.title ? `<figcaption>${img.attribs.title}</figcaption>` : '';
 
     return `
         <figure>
