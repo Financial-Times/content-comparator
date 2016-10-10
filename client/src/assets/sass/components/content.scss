@@ -313,7 +313,8 @@
 
 .missing-info,
 .article .missing-info,
-.article .article-image-title .missing-info {
+.article .article-image-title .missing-info,
+.article .article-body figure figcaption.missing-info {
     color: $claret-1;
     font-size: 12px;
     text-transform: uppercase;
