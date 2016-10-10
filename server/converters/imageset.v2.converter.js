@@ -53,7 +53,8 @@ function convert(index, element, mainImageUrl) {
                     url: imageUrl + '?apiKey=' + process.env.FT_API_KEY
                 }, function (imageError, imageResponse, imageBody) {
                     imageBody = jsonHandler.parse(imageBody);
-                    const copyrightsNotice = imageBody.copyright ? imageBody.copyright.notice : '<span class="missing-info">NO IMAGE COPYRIGHT NOTICE</span>';
+                    const copyrightsNotice = imageBody.copyright ? imageBody.copyright.notice : '<span class="missing-info">NO IMAGE COPYRIGHT NOTICE</span>',
+                        imageTitle = imageBody.title || 'no title';
                     let replacement = '';
 
                     if (mainImageUrl !== imageBody.binaryUrl) {
@@ -61,7 +62,7 @@ function convert(index, element, mainImageUrl) {
                             <figure>
                                 <div class="n-image-wrapper">
                                     <img src="${imageBody.binaryUrl}" alt="${imageBody.description}" />
-                                    <figcaption>${imageBody.title} ${copyrightsNotice}</figcaption>
+                                    <figcaption>${imageTitle} ${copyrightsNotice}</figcaption>
                                 </div>
                             </figure>
                         `;
