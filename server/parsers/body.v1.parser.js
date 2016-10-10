@@ -1,6 +1,6 @@
 'use strict';
 
-const pullQuoteConverter = require('../converters/pull-quote.converter'),
+const pullQuoteConverter = require('../converters/pull-quote.v1.converter'),
     promoBoxConverter = require('../converters/promo-box.v1.converter'),
     imagesV1Converter = require('../converters/images.v1.converter');
 

@@ -3,6 +3,7 @@
 const url = require('url'),
     cheerio = require('cheerio'),
     Promise = require('promise'),
+    pullQuoteConverter = require('../converters/pull-quote.v2.converter'),
     articleConverter = require('../converters/article.converter'),
     imagesetConverter = require('../converters/imageset.v2.converter');
 
@@ -28,6 +29,8 @@ function handle(body, mainImageUrl) {
 
     const $ = cheerio.load(body),
         ftElements = $('ft-content');
+
+    $.html(pullQuoteConverter.convert($));
 
     let actions = ftElements.map((index, element) => {
         const type = determineType(element);
