@@ -2,10 +2,9 @@
 
 const cheerio = require('cheerio'),
     Promise = require('promise'),
-    ROOT_PATH = process.env.APP_PATH,
-    pullQuoteConverter = require(ROOT_PATH + '/converters/v2/pull-quote.converter'),
-    ftRelatedConverter = require(ROOT_PATH + '/converters/v2/ft-related.converter'),
-    promoBoxConverter = require(ROOT_PATH + '/converters/v2/promo-box.converter'),
+    pullQuoteConverter = require('../../converters/v2/pull-quote.converter'),
+    ftRelatedConverter = require('../../converters/v2/ft-related.converter'),
+    promoBoxConverter = require('../../converters/v2/promo-box.converter'),
     ftContentParser = require('./ft-content.parser');
 
 function handle(body, mainImageUrl) {

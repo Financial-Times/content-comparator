@@ -1,9 +1,8 @@
 'use strict';
 
 const url = require('url'),
-    ROOT_PATH = process.env.APP_PATH,
-    ftContentArticleConverter = require(ROOT_PATH + '/converters/v2/ft-content-article.converter'),
-    ftContentImagesetConverter = require(ROOT_PATH + '/converters/v2/ft-content-imageset.converter');
+    ftContentArticleConverter = require('../../converters/v2/ft-content-article.converter'),
+    ftContentImagesetConverter = require('../../converters/v2/ft-content-imageset.converter');
 
 function determineType(element) {
     const typePath = url.parse(element.attribs.type).path,

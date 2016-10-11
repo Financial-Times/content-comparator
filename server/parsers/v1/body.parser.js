@@ -1,9 +1,8 @@
 'use strict';
 
-const ROOT_PATH = process.env.APP_PATH,
-    pullQuoteConverter = require(ROOT_PATH + '/converters/v1/pull-quote.converter'),
-    promoBoxConverter = require(ROOT_PATH + '/converters/v1/promo-box.converter'),
-    imagesV1Converter = require(ROOT_PATH + '/converters/v1/images.converter');
+const pullQuoteConverter = require('../../converters/v1/pull-quote.converter'),
+    promoBoxConverter = require('../../converters/v1/promo-box.converter'),
+    imagesV1Converter = require('../../converters/v1/images.converter');
 
 function convert(body, asset) {
     let converter;
