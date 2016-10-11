@@ -1,6 +1,7 @@
 'use strict';
 
-const fs = require('fs-extra'),
+const path = require('path'),
+    fs = require('fs-extra'),
     PACKAGE_JSON = require('../package.json');
 
 (function init() {
@@ -11,10 +12,12 @@ const fs = require('fs-extra'),
     }
 }());
 
+process.env.APP_PATH = path.resolve(__dirname);
+
 module.exports = {
     PORT: process.env.PORT || 4000,
     APP: PACKAGE_JSON.name,
-    APP_PATH: './'
+    APP_PATH: process.env.APP_PATH
 };
 
 

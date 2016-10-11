@@ -2,9 +2,9 @@
 
 const Promise = require('promise'),
     request = require('request'),
-    jsonHandler = require('../api/common/json-handler'),
-    datetimeParser = require('./datetime.parser'),
-    bodyV2parser = require('./body.v2.parser');
+    jsonHandler = require(process.env.APP_PATH + '/api/common/json-handler'),
+    datetimeParser = require('./common/datetime.parser'),
+    bodyV2parser = require('./v2/body.parser');
 
 function handle(response) {
 

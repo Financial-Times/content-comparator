@@ -1,7 +1,7 @@
 'use strict';
 
-const datetimeParser = require('./datetime.parser'),
-    bodyV1parser = require('./body.v1.parser');
+const datetimeParser = require('./common/datetime.parser'),
+    bodyV1parser = require('./v1/body.parser');
 
 function handle(response) {
 

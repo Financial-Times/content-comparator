@@ -1,44 +1,13 @@
 'use strict';
 
 const Promise = require('promise'),
-    jsonHandler = require('../api/common/json-handler'),
+    jsonHandler = require(process.env.APP_PATH + '/api/common/json-handler'),
     request = require('request'),
     $ = require('cheerio');
 
-function handlePromoBox(parent) {
-    let title,
-        titleElement;
-
-    if (parent[0].name === 'promo-box') {
-        const $title = parent.find('promo-title');
-
-        title = $title.text();
-        $title.replaceWith('');
-    }
-
-    if (title) {
-        titleElement = `<div class="promo-title">${title}</div>`;
-    } else {
-        titleElement = '';
-    }
-
-    return titleElement;
-}
-
-function wrap(element, parent) {
-    let title = handlePromoBox(parent);
-
-    return `<div class="${parent[0].name}">
-                ${title}
-                ${element}
-            </div>`;
-}
-
 function convert(index, element, mainImageUrl) {
-    let $element = $(element),
-        $parent = $element.parent();
 
-    const url = $element.attr('url');
+    const url = $(element).attr('url');
 
     return new Promise((resolve, reject) => {
         request({
@@ -53,8 +22,8 @@ function convert(index, element, mainImageUrl) {
                     url: imageUrl + '?apiKey=' + process.env.FT_API_KEY
                 }, function (imageError, imageResponse, imageBody) {
                     imageBody = jsonHandler.parse(imageBody);
-                    const copyrightsNotice = imageBody.copyright ? imageBody.copyright.notice : '<span class="missing-info">NO IMAGE COPYRIGHT NOTICE</span>',
-                        imageTitle = imageBody.title || 'no title';
+                    const copyrightsNotice = imageBody.copyright ? imageBody.copyright.notice : '',
+                        imageTitle = imageBody.title;
                     let replacement = '';
 
                     if (mainImageUrl !== imageBody.binaryUrl) {
@@ -66,12 +35,6 @@ function convert(index, element, mainImageUrl) {
                                 </div>
                             </figure>
                         `;
-                    }
-
-                    while ($parent[0].name !== 'body') {
-                        replacement = wrap(replacement, $element.parent());
-                        $element = $element.parent();
-                        $parent = $parent.parent();
                     }
 
                     resolve({

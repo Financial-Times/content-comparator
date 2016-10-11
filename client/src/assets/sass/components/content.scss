@@ -124,7 +124,8 @@
         }
     }
 
-    .promo-box {
+    .promo-box,
+    .ft-related {
         float: left;
         clear: left;
         margin: 24px 0 16px;
@@ -132,7 +133,8 @@
         width: 100%;
         border: 1px solid #cec6b9;
 
-        .promo-title {
+        .promo-title,
+        .ft-related-title {
             margin: -30px 0 0 10px;
             font-size: 20px;
             line-height: 24px;
@@ -143,9 +145,14 @@
             float: left;
         }
 
-        .promo-image {
+        .promo-image,
+        .ft-related-image {
             figure {
                 margin-bottom: 5px;
+
+                img {
+                    width: 100%;
+                }
             }
 
             figcaption {
@@ -155,7 +162,8 @@
             }
         }
 
-        .promo-headline {
+        .promo-headline,
+        .ft-related-headline {
             clear: both;
             margin: 0 16px 8px 16px;
             a {
@@ -180,7 +188,8 @@
             }
         }
 
-        .promo-intro {
+        .promo-intro,
+        .ft-related-intro {
             padding: 0 16px;
             p {
                 margin-bottom: 0;

@@ -1,7 +1,7 @@
 'use strict';
 
 const Promise = require('promise'),
-    jsonHandler = require('../api/common/json-handler'),
+    jsonHandler = require(process.env.APP_PATH + '/api/common/json-handler'),
     request = require('request'),
     $ = require('cheerio');
 
