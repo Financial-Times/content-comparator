@@ -1,6 +1,6 @@
 {
-  "name": "angular2-quickstart",
-  "version": "1.0.0",
+  "name": "ft-content-comparator",
+  "version": "1.0.1",
   "scripts": {
     "start": "gulp build && tsc && node boot",
     "start-dev": "gulp build && tsc && concurrently \"npm run tsc:w\" \"npm run lite\" \"gulp watch\" ",
