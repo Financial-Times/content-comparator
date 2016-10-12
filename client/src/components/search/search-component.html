@@ -1,8 +1,11 @@
 <div class="search well">
     <fieldset>
         <legend>{{legend}}</legend>
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="UUID" id="inputUuid" [ngModel]="uuid" (ngModelChange)="onUuidChange($event)" />
+        <div class="form-group section-{{section}}">
+            <div class="input-prefix">
+                <span>www.ft.com/</span>
+            </div>
+            <input type="text" class="form-control" [placeholder]="placeholder" [ngModel]="inputValue" (ngModelChange)="onValueChange($event)" />
         </div>
     </fieldset>
 </div>

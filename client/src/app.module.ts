@@ -8,6 +8,7 @@ import {FormsModule} from '@angular/forms';
 import {AppComponent}  from './app.component';
 import {APP_ROUTES, APP_ROUTING_PROVIDERS} from './app.routing';
 import {UuidService} from './services/uuid.service';
+import {StreamService} from './services/stream.service';
 import {AjaxService} from './services/ajax.service';
 import {ColumnHeightService} from './services/column-height.service';
 
@@ -34,6 +35,7 @@ import {ImagesPage} from './pages/images/images.page';
         APP_ROUTING_PROVIDERS,
         HTTP_PROVIDERS,
         AjaxService,
+        StreamService,
         UuidService,
         ColumnHeightService,
         {
