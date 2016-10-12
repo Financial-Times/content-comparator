@@ -23,8 +23,9 @@ export class ListsPage {
         this.ajaxService.get(this.API_ENDPOINT + 'concept/id/' + encodeURIComponent(this.streamUrl))
             .map(response => response.json())
             .subscribe(response => {
-                console.warn('concordances', response.concordances);
+                console.warn('response', response);
                 this.concordances = JSON.stringify(response.concordances);
+                this.lists = JSON.stringify(response.lists);
             });
     }
 

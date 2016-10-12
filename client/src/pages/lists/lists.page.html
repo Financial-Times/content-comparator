@@ -1,4 +1,11 @@
 <div class="page-wrapper row">
     <h1>Lists</h1>
-    {{concordances}}
+    <div *ngIf="concordances">
+        <h3>Concordances</h3>
+        {{concordances}}
+    </div>
+    <div *ngIf="lists">
+        <h3>Lists</h3>
+        {{lists}}
+    </div>
 </div>
