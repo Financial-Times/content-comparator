@@ -19,8 +19,6 @@ export class SearchComponent {
     section: string;
 
     router: Router;
-    uuidPattern: RegExp;
-    streamUrlPattern: RegExp;
 
     constructor(
         private uuidService: UuidService,
@@ -35,16 +33,13 @@ export class SearchComponent {
                 this.updateSearchForm();
             }
         });
-
-        this.uuidPattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
-        this.streamUrlPattern = new RegExp('^[a-z]+$');
     }
 
     determinePlaceholder(section) {
         let placeholder;
         switch(section) {
         case 'lists':
-            placeholder = 'stream URL';
+            placeholder = 'stream URL or name';
             break;
         default:
             placeholder = 'UUID';
@@ -54,7 +49,8 @@ export class SearchComponent {
     }
 
     updateSection() {
-        this.section = (this.router.url.replace(this.uuidPattern, '')).replace(/\//g, '');
+        const pattern = this.uuidService.getPattern();
+        this.section = (this.router.url.replace(pattern, '')).replace(/\//g, '');
     }
 
     updateValue() {
@@ -72,16 +68,8 @@ export class SearchComponent {
         this.legend = 'Look up ' + this.section + ' by ' + this.placeholder;
     }
 
-    isValidStreamUrl(streamUrl) {
-        return this.streamUrlPattern.test(streamUrl);
-    }
-
-    isValidUuid(uuid) {
-        return this.uuidPattern.test(uuid);
-    }
-
     handleContentValue(newValue) {
-        if (this.isValidUuid(newValue)) {
+        if (this.uuidService.isValidUuid(newValue)) {
             this.uuidService.updateUuid(newValue);
         } else {
             this.inputValue = this.uuid;
@@ -89,17 +77,24 @@ export class SearchComponent {
     }
 
     handleListsValue(newValue) {
-        if (this.isValidStreamUrl(newValue)) {
+        if (this.streamService.isValidStreamUrl(newValue)) {
             this.streamService.updateStreamUrl(newValue);
         } else {
             this.inputValue = this.streamUrl;
         }
     }
 
+    convertUrl(newValue) {
+        const anchor = document.createElement('a');
+        anchor.href = newValue;
+        return anchor.pathname.replace('/', '');// ['href','protocol','host','hostname','port','pathname','search','hash']
+    }
+
     onValueChange(newValue) {
         if (this.section === 'content') {
             this.handleContentValue(newValue);
         } else if (this.section === 'lists') {
+            newValue = this.convertUrl(newValue);
             this.handleListsValue(newValue);
         } else {
             this.uuidService.updateUuid(newValue);
@@ -117,13 +112,13 @@ export class SearchComponent {
         this.streamUrl = this.streamService.streamUrl;
 
         this.uuidService.uuidStream$.subscribe(uuid => {
-            if (this.isValidUuid(uuid) && uuid !== this.uuid) {
+            if (this.uuidService.isValidUuid(uuid) && uuid !== this.uuid) {
                 this.uuid = uuid;
             }
         });
 
         this.streamService.streamUrlStream$.subscribe(streamUrl => {
-            if (this.isValidStreamUrl(streamUrl) && streamUrl !== this.streamUrl) {
+            if (this.streamService.isValidStreamUrl(streamUrl) && streamUrl !== this.streamUrl) {
                 this.streamUrl = streamUrl;
             }
         });

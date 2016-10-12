@@ -6,12 +6,14 @@ import {AjaxService} from './ajax.service';
 @Injectable()
 export class UuidService {
     uuid: string;
+    uuidPattern: RegExp;
     randomize: boolean = true;
 
     constructor(
         private ajaxService : AjaxService,
         @Inject('API_ENDPOINT') private API_ENDPOINT : string
     ) {
+        this.uuidPattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
         this.fetch();
     }
 
@@ -43,6 +45,14 @@ export class UuidService {
     broadcastUuidChange(text:string) {
         this._uuid.next(text);
         document.documentElement.setAttribute('data-content-id', text);
+    }
+
+    isValidUuid(uuid) {
+        return this.uuidPattern.test(uuid);
+    }
+
+    getPattern() {
+        return this.uuidPattern;
     }
 
     noRandomize() {

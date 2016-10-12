@@ -2,9 +2,6 @@
     <fieldset>
         <legend>{{legend}}</legend>
         <div class="form-group section-{{section}}">
-            <div class="input-prefix">
-                <span>www.ft.com/</span>
-            </div>
             <input type="text" class="form-control" [placeholder]="placeholder" [ngModel]="inputValue" (ngModelChange)="onValueChange($event)" />
         </div>
     </fieldset>
