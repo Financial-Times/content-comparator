@@ -12,6 +12,8 @@ const CONFIG = new ConfigService().get();
 
 export class ListsPage {
     streamUrl: string;
+    concordances: string;
+    lists: string;
 
     constructor(
         private ajaxService : AjaxService,

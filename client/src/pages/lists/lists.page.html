@@ -1,5 +1,6 @@
 <div class="page-wrapper row">
     <h1>Lists</h1>
+    <img src="client/target/assets/img/hourglass.svg" style="display: block; width: 100px; margin: 20px auto 0 auto;" *ngIf="!concordances && !lists" />
     <div *ngIf="concordances">
         <h3>Concordances</h3>
         {{concordances}}
