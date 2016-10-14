@@ -1,12 +1,14 @@
 <div class="page-wrapper row">
-    <h1>Lists</h1>
-    <img src="client/target/assets/img/hourglass.svg" style="display: block; width: 100px; margin: 20px auto 0 auto;" *ngIf="!concordances && !lists" />
-    <div *ngIf="concordances">
-        <h3>Concordances</h3>
-        {{concordances}}
-    </div>
-    <div *ngIf="lists">
-        <h3>Lists</h3>
-        {{lists}}
+    <a href="//www.ft.com/{{streamUrl}}" target="_blank" class="open-at-ft-link">Open at FT.com</a>
+    <img src="client/target/assets/img/hourglass.svg" style="display: block; width: 100px; margin: 20px auto 0 auto;" *ngIf="!list" />
+    <div *ngIf="list">
+        <h3>{{title}}</h3>
+        <h5>type: {{type}}</h5>
+        <ul class="list-items">
+            <li *ngFor="let item of items">
+                <list-item [item]='item'></list-item>
+            </li>
+        </ul>
+        {{list}}
     </div>
 </div>

@@ -1,6 +1,7 @@
 'use strict';
 
 const request = require('request'),
+    moment = require('moment'),
     url = require('url'),
     cheerio = require('cheerio'),
     jsonHandler = require('../common/json-handler'),
@@ -11,15 +12,74 @@ function extractUuid(address) {
     return url.parse(address).path.replace(uuidPattern, '');
 }
 
+function getImageUrl(requestUrl) {
+    return new Promise(function (resolve, reject) {
+        request(requestUrl + '?apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
+            if (!error) {
+                resolve(jsonHandler.parse(body));
+            } else {
+                reject(error);
+            }
+        });
+    });
+}
+
+function getImage(mainImage) {
+    return new Promise(function (resolve, reject) {
+        request(mainImage.id + '?apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
+            if (!error) {
+                getImageUrl(jsonHandler.parse(body).members[0].id).then(resolve);
+            } else {
+                reject(error);
+            }
+        });
+    });
+}
+
+function fetchItem(itemUrl) {
+    return new Promise((resolve, reject) => {
+        request({
+            url: itemUrl + '?apiKey=' + process.env.FT_API_KEY
+        }, function (error, response, body) {
+            if (!error) {
+                body = jsonHandler.parse(body);
+                getImage(body.mainImage).then(image => {
+                    body.mainImage = Object.assign({}, body.mainImage, image);
+                    resolve(body);
+                });
+            } else {
+                reject(error);
+            }
+        });
+    });
+}
+
 function lookUpList(concordances) {
-    const uuid = extractUuid(concordances[0].concept.id);
+    const uuid = extractUuid(concordances[0].concept.id),
+        listType = 'curatedTopStoriesFor';
 
     return new Promise(function (resolve, reject) {
-        request(process.env.FT_API_URL + 'lists?curatedTopStoriesFor=' + uuid + '&apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
+        request(process.env.FT_API_URL + 'lists?' + listType + '=' + uuid + '&apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
             if (!error) {
-                resolve({
-                    concordances: concordances,
-                    lists: jsonHandler.parse(body)
+                body = jsonHandler.parse(body);
+
+                const itemsPromises = body.items.map(item => {
+                    return fetchItem(item.apiUrl);
+                });
+
+                let items = [];
+
+                Promise.all(itemsPromises).then((promises) => {
+                    promises.map((item) => {
+                        item.publishedDateConverted = moment(item.publishedDate).format('MMMM MM, YYYY');
+                        items.push(item);
+                    });
+                    resolve({
+                        items: items,
+                        type: body.listType,
+                        title: body.title,
+                        list: body
+                    });
                 });
             } else {
                 reject(error);

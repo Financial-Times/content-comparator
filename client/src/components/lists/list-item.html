@@ -1,0 +1,22 @@
+<div class="list-item o-card o-card--landscape o-card--image-left">
+    <div class="o-card o-card--landscape o-card--image-left" data-o-component="o-card">
+            <div class="o-card__image o-card__image--left">
+                <a href="{{item.webUrl}}" target="_blank">
+                    <img src="{{item.mainImage.binaryUrl}}" alt="{{item.mainImage.title}}" />
+                </a>
+            </div>
+
+        <div class="o-card__content">
+            <div class="o-card__meta">
+                <a href="{{item.webUrl}}" class="o-card__tag">Hardcoded tag</a>
+            </div>
+
+            <h3 class="o-card__heading">
+                <a href="{{item.webUrl}}" target="_blank">{{item.title}}</a>
+            </h3>
+
+
+            <time data-o-component="o-date" class="o-date o-card__timestamp">{{item.publishedDateConverted}}</time>
+        </div>
+    </div>
+</div>

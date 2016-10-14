@@ -1,0 +1,27 @@
+.list-items {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    a.o-card__tag:link,
+    a.o-card__tag:visited {
+        color: #9e2f50;
+        font-size: 16px;
+        font-family: 'MetricWeb', sans-serif;
+    }
+
+    a.o-card__tag:hover,
+    a.o-card__tag:active {
+        color: #505050;
+    }
+
+    .o-card__heading {
+        a {
+            color: #333;
+            font-size: 24px;
+            font-family: 'FinancierDisplayWeb', serif;
+            line-height: 26px;
+        }
+
+    }
+}

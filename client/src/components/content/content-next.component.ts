@@ -6,8 +6,6 @@ import {UuidService} from '../../services/uuid.service';
 import {ColumnHeightService} from '../../services/column-height.service';
 import {AjaxService} from '../../services/ajax.service';
 
-const CONFIG = new ConfigService().get();
-
 @Component({
   moduleId: module.id,
   selector: 'content-next-component',

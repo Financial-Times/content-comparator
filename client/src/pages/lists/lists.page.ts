@@ -2,18 +2,25 @@ import {Component, Inject} from '@angular/core';
 import {StreamService} from '../../services/stream.service';
 import {AjaxService} from '../../services/ajax.service';
 import ConfigService from '../../services/config.service';
+import {ListItemComponent} from '../../components/lists/list-item';
 
 const CONFIG = new ConfigService().get();
 
 @Component({
     selector: 'lists',
-    templateUrl: CONFIG.PATH.PAGES + 'lists/lists.page.html'
+    templateUrl: CONFIG.PATH.PAGES + 'lists/lists.page.html',
+    directives: [
+        ListItemComponent
+    ]
 })
 
 export class ListsPage {
     streamUrl: string;
     concordances: string;
-    lists: string;
+    items: Array<Object>;
+    list: string;
+    title: string;
+    type: string;
 
     constructor(
         private ajaxService : AjaxService,
@@ -26,8 +33,10 @@ export class ListsPage {
             .map(response => response.json())
             .subscribe(response => {
                 console.warn('response', response);
-                this.concordances = JSON.stringify(response.concordances);
-                this.lists = JSON.stringify(response.lists);
+                this.title = response.title;
+                this.type = response.type;
+                this.items = response.items;
+                this.list = JSON.stringify(response.list);
             });
     }
 
