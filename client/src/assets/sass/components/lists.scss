@@ -21,6 +21,12 @@
             font-size: 24px;
             font-family: 'FinancierDisplayWeb', serif;
             line-height: 26px;
+
+            &:hover,
+            &:active,
+            &:focus {
+                text-decoration: none;
+            }
         }
 
     }
