@@ -15,8 +15,13 @@
                 <a href="{{item.webUrl}}" target="_blank">{{item.title}}</a>
             </h3>
 
+            <p class="standfirst" *ngIf="index === 0">
+                {{item.standfirst}}
+            </p>
 
             <time data-o-component="o-date" class="o-date o-card__timestamp">{{item.publishedDateConverted}}</time>
+
+            <div class="list-item-fake-links" *ngIf="index === 0"></div>
         </div>
     </div>
 </div>

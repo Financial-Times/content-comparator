@@ -3,6 +3,7 @@ import {StreamService} from '../../services/stream.service';
 import {AjaxService} from '../../services/ajax.service';
 import ConfigService from '../../services/config.service';
 import {ListItemComponent} from '../../components/lists/list-item';
+import {ListsNextComponent} from '../../components/lists/lists-next';
 
 const CONFIG = new ConfigService().get();
 
@@ -10,7 +11,8 @@ const CONFIG = new ConfigService().get();
     selector: 'lists',
     templateUrl: CONFIG.PATH.PAGES + 'lists/lists.page.html',
     directives: [
-        ListItemComponent
+        ListItemComponent,
+        ListsNextComponent
     ]
 })
 
@@ -19,6 +21,9 @@ export class ListsPage {
     concordances: string;
     items: Array<Object>;
     list: string;
+    listType: string;
+    listTypes: Array<string> = ['Top Stories', 'Opinion Analisys', 'Special Reports', 'Columnists'];
+    listTypesLinks: Array<Object> = [];
     title: string;
     type: string;
 
@@ -29,18 +34,19 @@ export class ListsPage {
     ) {}
 
     fetch() {
-        this.ajaxService.get(this.API_ENDPOINT + 'concept/id/' + encodeURIComponent(this.streamUrl))
+        this.ajaxService.get(this.API_ENDPOINT + 'lists/id/' + encodeURIComponent(this.streamUrl))
             .map(response => response.json())
             .subscribe(response => {
                 console.warn('response', response);
-                this.title = response.title;
-                this.type = response.type;
+                this.type = (response.type.split(/(?=[A-Z])/)).join().replace(/,/g, ' ');
+                this.title = response.title.replace(this.type, '');
                 this.items = response.items;
                 this.list = JSON.stringify(response.list);
             });
     }
 
     ngOnInit() {
+        this.listType = 'TopStories';
         this.streamUrl = this.streamService.streamUrl;
         this.fetch();
 
@@ -49,6 +55,15 @@ export class ListsPage {
                 this.streamUrl = streamUrl;
                 this.fetch();
             }
+        });
+
+        this.listTypes.map((type, index) => {
+            this.listTypesLinks.push({
+                href: '#/lists',
+                label: type,
+                type: type.replace(' ', ''),
+                className: 'o-buttons' + (index === 0 ? ' o-buttons--standout' : '')
+            });
         });
     }
 }

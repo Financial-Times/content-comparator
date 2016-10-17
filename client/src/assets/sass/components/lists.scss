@@ -1,3 +1,10 @@
+.lists {
+    .col {
+        padding: 0 5px;
+    }
+    padding-top: 6px;
+}
+
 .list-items {
     list-style-type: none;
     margin: 0;
@@ -16,6 +23,7 @@
     }
 
     .o-card__heading {
+        padding: 0;
         a {
             color: #333;
             font-size: 24px;
@@ -29,5 +37,158 @@
             }
         }
 
+    }
+
+    @media all and (max-width: 1561px) {
+        li:first-child {
+            padding: 10px;
+
+            .list-item {
+                padding: 0 6px;
+            }
+
+            .o-card__image--left {
+                float: none;
+                padding-right: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .o-card__content {
+                width: 100%;
+                float: none;
+            }
+
+            .o-card__tag {
+                padding-top: 4px;
+                margin-bottom: 5px;
+            }
+
+            .o-card__heading {
+                margin: 0 0 7px 0;
+                a {
+                    font-size: 34px;
+                }
+            }
+
+            .o-date {
+                display: none;
+            }
+        }
+
+        li {
+            padding: 0;
+            border-bottom: solid 1px #cec6b9;
+
+            .list-item {
+                padding-top: 0;
+                min-height: 145px;
+            }
+
+            .o-card__heading {
+                line-height: 0;
+            }
+
+            .o-card__timestamp {
+                display: none;
+            }
+        }
+    }
+}
+
+.list-item-fake-links {
+    height: 70px;
+    width: 100%;
+    background: #e9decf;
+    margin: 18px 0 32px 0;
+
+    @media all and (min-width: 1562px) {
+        display: none;
+    }
+}
+
+.lists-next-iframe {
+    width: 100%;
+    border: none;
+}
+
+.lists .open-at-ft-link {
+    display: block;
+    background: #27757b;
+    color: white;
+    height: 36px;
+    line-height: 36px;
+}
+
+.lists-types {
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            margin-right: 12px;
+
+            .o-buttons--standout {
+                color: #fff;
+            }
+        }
+    }
+}
+
+.lists-dummy-header {
+    background: #e9decf;
+    width: 100%;
+    height: 96px;
+
+    @media all and (min-width: 1562px) {
+        height: 106px;
+    }
+}
+
+.lists-content h3 {
+    font-size: 40px;
+    font-family: 'FinancierDisplayWeb', serif;
+    font-weight: 400;
+    margin: 0 10px 0 0;
+    padding: 13px 0 13px 20px;
+}
+
+.lists-subheader {
+    position: relative;
+}
+
+.lists-subheader:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    height: 9px;
+    width: 100%;
+    background: url(https://next-geebee.ft.com/image/v1/images/raw/http%3a%2f%2fnext-geebee.ft.com%2fassets%2fbackgrounds%2ffront-page-section-header-v2.svg?source=next&format=svg&tint=000000,000000) repeat transparent;
+}
+
+.lists-subheader h5 {
+    font-size: 28px;
+    font-family: 'MetricWeb', sans-serif;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0 10px 0 0;
+    background-color: #fff1e0;
+    display: inline-block;
+    position: relative;
+}
+
+.lists {
+    .standfirst {
+        font: 16px/1.3 'Georgia', serif;
+        color: #505050;
+        margin: 5px 0 0;
     }
 }

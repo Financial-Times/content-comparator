@@ -1,14 +1,29 @@
-<div class="page-wrapper row">
-    <a href="//www.ft.com/{{streamUrl}}" target="_blank" class="open-at-ft-link">Open at FT.com</a>
-    <img src="client/target/assets/img/hourglass.svg" style="display: block; width: 100px; margin: 20px auto 0 auto;" *ngIf="!list" />
-    <div *ngIf="list">
-        <h3>{{title}}</h3>
-        <h5>type: {{type}}</h5>
-        <ul class="list-items">
-            <li *ngFor="let item of items">
-                <list-item [item]='item'></list-item>
+<div class="page-wrapper row lists">
+    <div class="lists-types">
+        <ul>
+            <li *ngFor="let type of listTypesLinks">
+                <a href="{{type.href}}" class={{type.className}}>{{type.label}}</a>
             </li>
         </ul>
-        {{list}}
+    </div>
+    <div class="col col-md-6">
+        <h3>Lists at stream page</h3>
+        <lists-next></lists-next>
+    </div>
+    <div class="col col-md-6">
+        <h3>Lists V2 API</h3>
+        <div class="lists-dummy-header"></div>
+        <img src="client/target/assets/img/hourglass.svg" style="display: block; width: 100px; margin: 20px auto 0 auto;" *ngIf="!list" />
+        <div class="lists-content" *ngIf="list">
+            <h3>{{title}}</h3>
+            <div class="lists-subheader">
+                <h5>{{type}}</h5>
+            </div>
+            <ul class="list-items">
+                <li *ngFor="let item of items; let i = index;">
+                    <list-item [item]='item' [index]='i'></list-item>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>

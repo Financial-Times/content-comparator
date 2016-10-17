@@ -5,7 +5,7 @@ const responder = require('./common/responder'),
     apiRoutes = {
         GET: {
             content: require('./get/content'),
-            concept: require('./get/concept'),
+            lists: require('./get/lists'),
             newest: require('./get/newest'),
             test: require('./get/test')
         },

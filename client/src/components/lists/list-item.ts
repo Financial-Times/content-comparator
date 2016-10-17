@@ -9,5 +9,6 @@ import {ListItem} from '../../models/list-item.model';
 
 export class ListItemComponent {
     @Input() item:ListItem;
+    @Input() index:string;
 }
 
