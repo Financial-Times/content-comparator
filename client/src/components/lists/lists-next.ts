@@ -15,7 +15,7 @@ export class ListsNextComponent {
 
     constructor(
         sanitizer: DomSanitizationService,
-        private streamService: StreamService,
+        private streamService: StreamService
     ) {
         this.sanitizer = sanitizer;
     }
