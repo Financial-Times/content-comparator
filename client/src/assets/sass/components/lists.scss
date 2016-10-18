@@ -39,6 +39,14 @@
 
     }
 
+    .full-true {
+        min-height: 0;
+        .o-card__content {
+            float: none;
+            width: 100%;
+        }
+    }
+
     @media all and (max-width: 1561px) {
         li:first-child {
             padding: 10px;
@@ -190,5 +198,9 @@
         font: 16px/1.3 'Georgia', serif;
         color: #505050;
         margin: 5px 0 0;
+    }
+
+    .alert {
+        text-align: center;
     }
 }

@@ -43,7 +43,13 @@ module.exports = new class Responder {
         }
     }
 
-    reject(response) {
+    reject(response, error) {
+        if (error.statusCode) {
+            this.badRequestParams.status = error.statusCode;
+        }
+        if (error.statusMessage) {
+            this.badRequestParams.error = error.statusMessage;
+        }
         this.send(response, this.badRequestParams);
     }
 
