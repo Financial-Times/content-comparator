@@ -88,7 +88,7 @@ function lookUpList(data) {
                 });
             } else {
                 error = error || {
-                    statusMessage: 'List type of "' + listType + '" not found for stream "' + data.stream + '"',
+                    statusMessage: 'List type of "' + listType + '" not found for stream page "' + data.stream + '"',
                     statusCode: response.statusCode
                 };
                 reject(error);

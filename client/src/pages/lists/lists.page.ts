@@ -48,7 +48,6 @@ export class ListsPage {
     }
 
     fetchSuccess(response) {
-        console.warn('response', response);
         this.type = (response.type.split(/(?=[A-Z])/)).join().replace(/,/g, ' ');
         this.title = response.title.replace(this.type, '');
         this.items = response.items;
@@ -57,9 +56,13 @@ export class ListsPage {
     }
 
     fetchError(error) {
+        console.warn('Error:', error);
         this.loading = false;
         this.list = null;
         this.items = [];
+        if (error._body && typeof error._body !== 'string') {
+            error._body = "Request timeout...";
+        }
         this.error = error;
     }
 
