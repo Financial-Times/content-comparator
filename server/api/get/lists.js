@@ -61,7 +61,7 @@ function getListTypeParam(type) {
 function lookUpList(data) {
     const uuid = extractUuid(data.concordances[0].concept.id),
         listType = getListTypeParam(data.listType);
-
+console.log('listType', listType, 'uuid', uuid);
     return new Promise(function (resolve, reject) {
         request(process.env.FT_API_URL + 'lists?' + listType + '=' + uuid + '&apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
 

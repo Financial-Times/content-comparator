@@ -27,7 +27,7 @@ export class ListsPage {
     items: Array<Object>;
     list: string;
     listType: string;
-    listTypes: Array<string> = ['Top Stories', 'Opinion Analisys', 'Special Reports', 'Columnists'];
+    listTypes: Array<string> = ['Top Stories', 'Opinion Analysis', 'Special Reports', 'Columnists'];
     listTypesLinks: Array<Object> = [];
     title: string;
     type: string;
