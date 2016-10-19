@@ -141,6 +141,12 @@
             display: inline-block;
             margin-right: 12px;
 
+            a {
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+
             .o-buttons--standout {
                 color: #fff;
             }
