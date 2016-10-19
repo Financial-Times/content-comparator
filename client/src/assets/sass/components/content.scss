@@ -376,4 +376,14 @@
         text-align: center;
         color: #416e92;
     }
+
+    .column {
+        .loader {
+            width: 100px;
+            margin: 20% auto 0 auto;
+            .loader-inner {
+                text-align: center;
+            }
+        }
+    }
 }

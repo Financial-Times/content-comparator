@@ -16,7 +16,11 @@
             <p>{{error._body}}</p>
         </div>
         <div class="lists-dummy-header" *ngIf="list && !loading"></div>
-        <img class="lists-column-loader" src="client/target/assets/img/hourglass.svg" *ngIf="loading" />
+        <div class="loader">
+            <div class="loader-inner ball-scale lists-column-loader" *ngIf="loading">
+                <div></div>
+            </div>
+        </div>
         <div class="lists-content" *ngIf="list && !loading">
             <h3>{{title}}</h3>
             <div class="lists-subheader">
