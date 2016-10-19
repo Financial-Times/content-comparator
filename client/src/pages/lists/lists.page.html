@@ -15,7 +15,7 @@
         <div class="alert alert-dismissible alert-danger animated fadeIn" *ngIf="error && !loading">
             <p>{{error._body}}</p>
         </div>
-        <div class="lists-dummy-header animated fadeIn" *ngIf="!error && !loading"></div>
+        <div class="lists-dummy-header animated fadeIn" *ngIf="!error && !loading" #dummyHeader></div>
         <div class="loader">
             <div class="loader-inner ball-scale lists-column-loader" *ngIf="loading">
                 <div></div>
@@ -27,7 +27,7 @@
                 <h5>{{type}}</h5>
             </div>
             <ul class="list-items">
-                <li *ngFor="let item of items; let i = index;">
+                <li *ngFor="let item of items; let i = index;" class="hidden-{{i > 10}}">
                     <list-item [item]='item' [index]='i'></list-item>
                 </li>
             </ul>

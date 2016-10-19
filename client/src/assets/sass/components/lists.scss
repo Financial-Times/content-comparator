@@ -10,6 +10,12 @@
     margin: 0;
     padding: 0;
 
+    li {
+        &.hidden-true {
+            display: none;
+        }
+    }
+
     a.o-card__tag:link,
     a.o-card__tag:visited {
         color: #9e2f50;
@@ -44,6 +50,15 @@
         .o-card__content {
             float: none;
             width: 100%;
+        }
+    }
+
+    .list-item {
+        overflow: hidden;
+        .o-card__image {
+            img {
+                margin-bottom: 20px;
+            }
         }
     }
 
@@ -90,11 +105,11 @@
 
             .list-item {
                 padding-top: 0;
-                min-height: 145px;
             }
 
             .o-card__heading {
                 line-height: 0;
+                margin: 0 0 20px 0;
             }
 
             .o-card__timestamp {

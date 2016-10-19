@@ -4,6 +4,7 @@ import {AjaxService} from '../../services/ajax.service';
 import ConfigService from '../../services/config.service';
 import {ListItemComponent} from '../../components/lists/list-item';
 import {ListsNextComponent} from '../../components/lists/lists-next';
+import {ColumnHeightService} from '../../services/column-height.service';
 
 const CONFIG = new ConfigService().get();
 
@@ -18,6 +19,7 @@ const CONFIG = new ConfigService().get();
 
 export class ListsPage {
     @ViewChild('list') listsContent:ElementRef;
+    @ViewChild('dummyHeader') dummyHeader:ElementRef;
 
     streamUrl: string;
     concordances: string;
@@ -33,10 +35,10 @@ export class ListsPage {
 
     constructor(
         private ajaxService : AjaxService,
+        private columnHeightService: ColumnHeightService,
         private streamService: StreamService,
         @Inject('API_ENDPOINT') private API_ENDPOINT : string
     ) {
-        console.warn('lists', this.listsContent)
     }
 
     convertType(type) {
@@ -56,6 +58,9 @@ export class ListsPage {
         this.list = JSON.stringify(response.list);
         this.loading = false;
         this.listsContent.nativeElement.className = 'lists-content zoomInUp animated';
+        window.setTimeout(() => {
+            this.columnHeightService.updateHeight(this.listsContent.nativeElement.offsetHeight + this.dummyHeader.nativeElement.offsetHeight + 'px');
+        }, 1000);
     }
 
     fetchError(error) {
