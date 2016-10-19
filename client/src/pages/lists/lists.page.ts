@@ -27,7 +27,8 @@ export class ListsPage {
     items: Array<Object>;
     list: string;
     listType: string;
-    listTypes: Array<string> = ['Top Stories', 'Opinion Analysis', 'Special Reports', 'Columnists'];
+    cssListType: string;
+    listTypes: Array<string> = ['Top Stories', 'Opinion & Analysis', 'Special Reports', 'Columnists'];
     listTypesLinks: Array<Object> = [];
     title: string;
     type: string;
@@ -42,17 +43,18 @@ export class ListsPage {
     }
 
     convertType(type) {
-        return type.replace(/ /g,'');
+        return encodeURIComponent(type.replace(/ /g,''));
     }
 
     changeType(type) {
         this.listType = this.convertType(type);
+        this.cssListType = decodeURIComponent(this.listType).replace(/&/,'-');
         this.updateListTypeButtons();
         this.fetch();
     }
 
     fetchSuccess(response) {
-        this.type = (response.type.split(/(?=[A-Z])/)).join().replace(/,/g, ' ');
+        this.type = (response.type.split(/(?=[A-Z&])/)).join().replace(/,/g, ' ');
         this.title = response.title.replace(this.type, '');
         this.items = response.items;
         this.list = JSON.stringify(response.list);
@@ -103,6 +105,7 @@ export class ListsPage {
 
     ngOnInit() {
         this.listType = 'TopStories';
+        this.cssListType = 'topstories';
         this.streamUrl = this.streamService.streamUrl;
         this.fetch();
 

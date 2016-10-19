@@ -55,13 +55,13 @@ function fetchItem(itemUrl) {
 }
 
 function getListTypeParam(type) {
-    return 'curated' + type + 'For';
+    return 'curated' + decodeURIComponent(type).replace(/&/, '') + 'For';
 }
 
 function lookUpList(data) {
     const uuid = extractUuid(data.concordances[0].concept.id),
         listType = getListTypeParam(data.listType);
-console.log('listType', listType, 'uuid', uuid);
+
     return new Promise(function (resolve, reject) {
         request(process.env.FT_API_URL + 'lists?' + listType + '=' + uuid + '&apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
 
@@ -81,7 +81,7 @@ console.log('listType', listType, 'uuid', uuid);
                     });
                     resolve({
                         items: items,
-                        type: body.listType,
+                        type: data.listType,
                         title: body.title,
                         list: body
                     });

@@ -119,6 +119,104 @@
     }
 }
 
+.list-items.type-opinion-analysis {
+
+    @media all and (min-width: 1562px) {
+        width: 40%;
+    }
+
+    .o-card__image--left,
+    .list-item-fake-links {
+        display: none;
+    }
+
+    li {
+        border-bottom: solid 1px #cec6b9;
+        .o-card {
+            padding: 5px 0 0 5px;
+        }
+        .o-card__content {
+            width: 100%;
+            float: none;
+        }
+        .o-card__heading {
+            display: block;
+            margin-bottom: 20px;
+            line-height: 0;
+            height: auto;
+
+            a {
+                font-size: 20px;
+                line-height: 15px;
+                margin-bottom: 5px;
+
+                @media all and (min-width: 1562px) {
+                    font-size: 18px;
+                    line-height: 1.2em;
+                }
+            }
+        }
+
+        .o-card__timestamp {
+            display: none;
+        }
+    }
+
+    li:first-child {
+        background: #fff1e0;
+        padding: 0 0 10px 0;
+
+        .o-card__timestamp {
+            display: block;
+        }
+
+        .list-item {
+            background: #ffe9d7;
+            padding: 10px;
+            position: relative;
+
+            .o-card {
+                background-color: #ffe9d7;
+                padding: 0;
+            }
+
+            .o-card__content {
+                margin-bottom: 5px;
+            }
+
+            .o-card__content:before {
+                position: absolute;
+                top: 0;
+                left: auto;
+                right: 0;
+                width: 50px;
+                height: 55px;
+                z-index: 1;
+                background: url("https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Fbackgrounds%2Ffold-with-bg-1.svg?source=next") no-repeat;
+            }
+
+            .o-card__tag {
+                font-family: 'FinancierDisplayWeb', serif;
+                font-size: 20px;
+                font-weight: normal;
+            }
+            .o-card__heading {
+                display: inline;
+                line-height: 0;
+                a {
+                    font-size: 20px;
+                    @media all and (min-width: 1562px) {
+                        font-size: 18px;
+                    }
+                }
+            }
+            .standfirst {
+                display: none;
+            }
+        }
+    }
+}
+
 .list-item-fake-links {
     height: 70px;
     width: 100%;
@@ -202,16 +300,24 @@
     background: url(https://next-geebee.ft.com/image/v1/images/raw/http%3a%2f%2fnext-geebee.ft.com%2fassets%2fbackgrounds%2ffront-page-section-header-v2.svg?source=next&format=svg&tint=000000,000000) repeat transparent;
 }
 
-.lists-subheader h5 {
-    font-size: 28px;
-    font-family: 'MetricWeb', sans-serif;
-    line-height: 40px;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0 10px 0 0;
-    background-color: #fff1e0;
-    display: inline-block;
-    position: relative;
+.lists-subheader {
+    h5 {
+        font-size: 28px;
+        font-family: 'MetricWeb', sans-serif;
+        line-height: 40px;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0 10px 0 0;
+        background-color: #fff1e0;
+        display: inline-block;
+        position: relative;
+    }
+
+    &.type-opinion-analysis {
+        h5 {
+            font-size: 21px;
+        }
+    }
 }
 
 .lists {

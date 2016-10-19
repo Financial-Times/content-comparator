@@ -23,12 +23,12 @@
         </div>
         <div class="lists-content" #list>
             <h3>{{title}}</h3>
-            <div class="lists-subheader">
+            <div class="lists-subheader type-{{cssListType.toLowerCase()}}">
                 <h5>{{type}}</h5>
             </div>
-            <ul class="list-items type-{{listType.toLowerCase()}}">
+            <ul class="list-items type-{{cssListType.toLowerCase()}}">
                 <li *ngFor="let item of items; let i = index;" class="hidden-{{i > 10}}">
-                    <list-item [item]='item' [index]='i'></list-item>
+                    <list-item [item]='item' [index]='i' [type]='cssListType.toLowerCase()'></list-item>
                 </li>
             </ul>
         </div>
