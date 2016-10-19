@@ -1,1 +1,8 @@
-<iframe [src]="iframeUrl" class="lists-next-iframe" style="height: 10000px;"></iframe>
+<div class="column lists-next-column">
+    <div class="loader lists-column-loader" *ngIf="!iframeLoaded">
+        <div class="loader-inner ball-scale">
+            <div></div>
+        </div>
+    </div>
+    <iframe [src]="iframeUrl" class="lists-next-iframe hidden" style="height: 10000px;" #iframe></iframe>
+</div>

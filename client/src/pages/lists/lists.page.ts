@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {ViewChild, Component, Inject, ElementRef} from '@angular/core';
 import {StreamService} from '../../services/stream.service';
 import {AjaxService} from '../../services/ajax.service';
 import ConfigService from '../../services/config.service';
@@ -17,6 +17,8 @@ const CONFIG = new ConfigService().get();
 })
 
 export class ListsPage {
+    @ViewChild('list') listsContent:ElementRef;
+
     streamUrl: string;
     concordances: string;
     error: Object;
@@ -34,7 +36,7 @@ export class ListsPage {
         private streamService: StreamService,
         @Inject('API_ENDPOINT') private API_ENDPOINT : string
     ) {
-
+        console.warn('lists', this.listsContent)
     }
 
     convertType(type) {
@@ -53,6 +55,7 @@ export class ListsPage {
         this.items = response.items;
         this.list = JSON.stringify(response.list);
         this.loading = false;
+        this.listsContent.nativeElement.className = 'lists-content zoomInUp animated';
     }
 
     fetchError(error) {
@@ -64,6 +67,7 @@ export class ListsPage {
             error._body = "Request timeout...";
         }
         this.error = error;
+        this.listsContent.nativeElement.className = 'lists-content hidden';
     }
 
     fetch() {
@@ -72,7 +76,7 @@ export class ListsPage {
             .map(response => response.json())
             .subscribe(response => {
                 this.error = null;
-                this.fetchSuccess(response)
+                this.fetchSuccess(response);
             }, error => {
                 this.fetchError(error);
             });
@@ -80,6 +84,7 @@ export class ListsPage {
 
     updateListTypeButtons() {
         this.listTypesLinks = [];
+        this.listsContent.nativeElement.className = 'lists-content hidden';
         this.listTypes.map((type, index) => {
             const typeConverted = this.convertType(type);
             this.listTypesLinks.push({

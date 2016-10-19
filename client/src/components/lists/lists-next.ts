@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ViewChild, Component, ElementRef} from '@angular/core';
 import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser';
 import {StreamService} from '../../services/stream.service';
 
@@ -9,9 +9,11 @@ import {StreamService} from '../../services/stream.service';
 })
 
 export class ListsNextComponent {
+    @ViewChild('iframe') iframe:ElementRef;
     sanitizer: DomSanitizationService;
     streamUrl: string;
     iframeUrl: SafeResourceUrl;
+    iframeLoaded: boolean = false;
 
     constructor(
         sanitizer: DomSanitizationService,
@@ -26,9 +28,16 @@ export class ListsNextComponent {
 
         this.streamService.streamUrlStream$.subscribe(streamUrl => {
             if (this.streamService.isValidStreamUrl(streamUrl) && streamUrl !== this.streamUrl) {
+                this.iframeLoaded = false;
+                this.iframe.nativeElement.className = 'lists-next-iframe hidden';
                 this.streamUrl = streamUrl;
                 this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/' + this.streamUrl);
             }
         });
+
+        this.iframe.nativeElement.onload = () => {
+            this.iframeLoaded = true;
+            this.iframe.nativeElement.className = 'lists-next-iframe fadeIn animated';
+        };
     }
 }

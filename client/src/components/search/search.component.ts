@@ -1,5 +1,5 @@
 import {Router, NavigationEnd, Event as NavigationEvent} from '@angular/router';
-import {Component, Input, OnChanges} from '@angular/core';
+import {Component, Input, OnChanges, ViewChild, ElementRef} from '@angular/core';
 import {UuidService} from '../../services/uuid.service';
 import {StreamService} from '../../services/stream.service';
 
@@ -10,6 +10,8 @@ import {StreamService} from '../../services/stream.service';
 })
 
 export class SearchComponent {
+    @ViewChild('legendElement') legendElement:ElementRef;
+
     uuid: string;
     streamUrl: string;
 
@@ -64,8 +66,12 @@ export class SearchComponent {
     }
 
     updateSearchForm() {
-        this.placeholder = this.determinePlaceholder(this.section);
-        this.legend = 'Look up ' + this.section + ' by ' + this.placeholder;
+        this.legendElement.nativeElement.className = 'hide';
+        window.setTimeout(() => {
+            this.placeholder = this.determinePlaceholder(this.section);
+            this.legend = 'Look up ' + this.section + ' by ' + this.placeholder;
+            this.legendElement.nativeElement.className = 'animated fadeIn';
+        }, 50);
     }
 
     handleContentValue(newValue) {

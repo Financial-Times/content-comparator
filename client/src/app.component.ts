@@ -9,6 +9,7 @@ const CONFIG = new ConfigService().get();
   selector: 'app',
   styleUrls: [
       CONFIG.PATH.TARGET + 'assets/css/bootstrap.min.css',
+      CONFIG.PATH.TARGET + 'assets/css/animate.css',
       CONFIG.PATH.TARGET + 'assets/css/style.css'
   ],
   encapsulation: ViewEncapsulation.None,

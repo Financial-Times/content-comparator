@@ -6,11 +6,23 @@ import {ColumnHeightService} from '../../services/column-height.service';
 import {AjaxService} from '../../services/ajax.service';
 import {Article} from '../../models/article.model';
 
-const CONFIG = new ConfigService().get();
+const CONFIG = new ConfigService().get(),
+    articleDefault = {
+        title: null,
+        summary: null,
+        byline: null,
+        theme: null,
+        image: {},
+        body: null,
+        publishDateTime: null
+    };
 
 @Component({
   moduleId: module.id,
   selector: 'contentv1-component',
+  host: {
+    '[class.visible]': 'visible'
+  },
   templateUrl: 'content-component.html',
   providers: [AjaxService]
 })
@@ -21,6 +33,8 @@ export class ContentV1Component {
     article: Article;
     uuid: string;
     columnHeightTriggered: boolean;
+    visible: boolean = false;
+    loading: boolean = true;
 
     constructor(
         private ajaxService : AjaxService,
@@ -28,15 +42,7 @@ export class ContentV1Component {
         private columnHeightService: ColumnHeightService,
         @Inject('API_ENDPOINT') private API_ENDPOINT : string
     ) {
-        this.article = {
-            title: null,
-            summary: null,
-            byline: null,
-            theme: null,
-            image: {},
-            body: null,
-            publishDateTime: null
-        };
+        this.article = articleDefault;
     }
 
     label = 'Content V1 API';
@@ -46,6 +52,7 @@ export class ContentV1Component {
             .map(response => <Article> response.json())
             .subscribe(article => {
                 this.article = article;
+                this.visible = true;
             });
     }
 
@@ -67,6 +74,7 @@ export class ContentV1Component {
             const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
 
             if (pattern.test(uuid) && uuid !== this.uuid) {
+                this.article = articleDefault;
                 this.uuid = uuid;
                 this.fetch();
             }

@@ -1,6 +1,8 @@
-<div class="search well">
+<div class="search well animated fadeIn">
     <fieldset>
-        <legend>{{legend}}</legend>
+        <div class="legend-container">
+            <legend class="animated bounceIn" #legendElement>{{legend}}</legend>
+        </div>
         <div class="form-group section-{{section}}">
             <input type="text" class="form-control" [placeholder]="placeholder" [ngModel]="inputValue" (ngModelChange)="onValueChange($event)" />
         </div>

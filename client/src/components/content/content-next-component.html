@@ -1,2 +1,9 @@
-<a [href]="iframeUrl" target="_blank" *ngIf="iframeUrl" class="open-at-ft-link">Open at FT.com</a>
-<iframe [src]="iframeUrl" [style.height]="this.columnHeight" class="content-next-iframe"></iframe>
+<div class="column content-column" #column>
+    <a [href]="iframeUrl" target="_blank" *ngIf="iframeUrl" class="open-at-ft-link">Open at FT.com</a>
+    <div class="loader" *ngIf="!iframeLoaded">
+        <div class="loader-inner ball-scale">
+            <div></div>
+        </div>
+    </div>
+    <iframe [src]="iframeUrl" [style.height]="this.columnHeight" class="content-next-iframe" #iframe></iframe>
+</div>

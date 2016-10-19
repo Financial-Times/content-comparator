@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {ViewChild, Component, Inject, ElementRef} from '@angular/core';
 import {SafeResourceUrl, DomSanitizationService} from '@angular/platform-browser';
 import ConfigService from '../../services/config.service';
 
@@ -14,12 +14,16 @@ import {AjaxService} from '../../services/ajax.service';
 })
 
 export class ContentNextComponent {
+    @ViewChild('column') column:ElementRef;
+    @ViewChild('iframe') iframe:ElementRef;
+    loaded: boolean = false;
     uuid: string;
     columnHeight: string;
     height: string;
     sanitizer: DomSanitizationService;
     iframeUrl: SafeResourceUrl;
     iframeStyle: string;
+    iframeLoaded: boolean = false;
 
     constructor(
         private ajaxService : AjaxService,
@@ -41,6 +45,8 @@ export class ContentNextComponent {
             const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
 
             if (pattern.test(uuid) && uuid !== this.uuid) {
+                this.iframeLoaded = false;
+                this.iframe.nativeElement.className = 'content-next-iframe hidden';
                 this.uuid = uuid;
                 this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
             }
@@ -52,5 +58,10 @@ export class ContentNextComponent {
         this.columnHeightService.heightStream$.subscribe(height => {
             this.columnHeight = this.columnHeightService.height;
         });
+
+        this.iframe.nativeElement.onload = () => {
+            this.iframeLoaded = true;
+            this.iframe.nativeElement.className = 'content-next-iframe fadeIn animated';
+        };
     }
 }
