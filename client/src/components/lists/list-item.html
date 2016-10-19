@@ -13,6 +13,7 @@
             </div>
 
             <h3 class="o-card__heading">
+                <span class="columnist-name" *ngIf="type === 'columnists'">{{item.byline}}</span>
                 <a href="{{item.webUrl}}" target="_blank">{{item.title}}</a>
             </h3>
 

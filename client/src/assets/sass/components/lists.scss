@@ -34,7 +34,7 @@
             color: #333;
             font-size: 24px;
             font-family: 'FinancierDisplayWeb', serif;
-            line-height: 26px;
+            line-height: 1em;
 
             &:hover,
             &:active,
@@ -116,6 +116,44 @@
                 display: none;
             }
         }
+    }
+}
+
+.list-items.type-columnists {
+
+    li:first-child .o-card {
+        padding: 0;
+    }
+    .o-card {
+        padding: 5px 5px 0 5px;
+    }
+
+    .list-item-fake-links,
+    .o-card__image,
+    .o-card__tag,
+    .standfirst {
+        display: none;
+    }
+    .o-card__content {
+        width: 100%;
+        float: none;
+    }
+
+    li:first-child .o-card__heading,
+    .o-card__heading {
+        line-height: 0.6em;
+    }
+
+    li:first-child .o-card__heading a,
+    .o-card__heading a {
+        font-size: 24px;
+    }
+
+    .columnist-name {
+        display: block;
+        color: #416e92;
+        font-size: 20px;
+        font-family: 'FinancierDisplayWeb', serif;
     }
 }
 
