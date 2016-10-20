@@ -61,7 +61,8 @@ export class ListsPage {
         this.loading = false;
         this.listsContent.nativeElement.className = 'lists-content zoomInUp animated';
         window.setTimeout(() => {
-            this.columnHeightService.updateHeight(this.listsContent.nativeElement.offsetHeight + this.dummyHeader.nativeElement.offsetHeight + 'px');
+            const modifier = this.dummyHeader ? this.dummyHeader.nativeElement.offsetHeight : 0;
+            this.columnHeightService.updateHeight(this.listsContent.nativeElement.offsetHeight + modifier + 'px');
         }, 1000);
     }
 

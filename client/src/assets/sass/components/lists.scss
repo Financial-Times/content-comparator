@@ -185,7 +185,7 @@
 
             a {
                 font-size: 20px;
-                line-height: 15px;
+                line-height: 1em;
                 margin-bottom: 5px;
 
                 @media all and (min-width: 1562px) {
@@ -201,56 +201,9 @@
     }
 
     li:first-child {
-        background: #fff1e0;
         padding: 0 0 10px 0;
-
-        .o-card__timestamp {
-            display: block;
-        }
-
-        .list-item {
-            background: #ffe9d7;
-            padding: 10px;
-            position: relative;
-
-            .o-card {
-                background-color: #ffe9d7;
-                padding: 0;
-            }
-
-            .o-card__content {
-                margin-bottom: 5px;
-            }
-
-            .o-card__content:before {
-                position: absolute;
-                top: 0;
-                left: auto;
-                right: 0;
-                width: 50px;
-                height: 55px;
-                z-index: 1;
-                background: url("https://next-geebee.ft.com/image/v1/images/raw/https%3A%2F%2Fnext-geebee.ft.com%2Fassets%2Fbackgrounds%2Ffold-with-bg-1.svg?source=next") no-repeat;
-            }
-
-            .o-card__tag {
-                font-family: 'FinancierDisplayWeb', serif;
-                font-size: 20px;
-                font-weight: normal;
-            }
-            .o-card__heading {
-                display: inline;
-                line-height: 0;
-                a {
-                    font-size: 20px;
-                    @media all and (min-width: 1562px) {
-                        font-size: 18px;
-                    }
-                }
-            }
-            .standfirst {
-                display: none;
-            }
+        .standfirst {
+            display: none;
         }
     }
 }

@@ -17,16 +17,8 @@ export class ListItemComponent {
 
     }
 
-    determineTag() {
-        let tag = 'Hardcoded tag';
-        if (this.type === 'opinion-analysis' && parseInt(this.index, 10) === 0) {
-            tag = 'Editor\'s pick';
-        }
-        return tag;
-    }
-
     ngOnInit() {
-        this.tag = this.determineTag();
+        this.tag = 'Hardcoded tag';
     }
 }
 
