@@ -1,17 +1,11 @@
 import {NgModule} from '@angular/core';
-import {LocationStrategy, HashLocationStrategy, PathLocationStrategy} from '@angular/common';
-import {HTTP_PROVIDERS} from '@angular/http';
+import {APP_ROUTES} from './app.routing';
 import {RouterModule} from '@angular/router';
 import {BrowserModule} from '@angular/platform-browser';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent}  from './app.component';
-import {APP_ROUTES, APP_ROUTING_PROVIDERS} from './app.routing';
-import {UuidService} from './services/uuid.service';
-import {StreamService} from './services/stream.service';
-import {AjaxService} from './services/ajax.service';
-import {ColumnHeightService} from './services/column-height.service';
-import {DialogService} from './services/dialog.service';
+import {APP_PROVIDERS} from './app.providers';
 
 import {SearchComponent} from './components/search/search.component';
 import {DialogComponent} from './components/dialog/dialog-component';
@@ -35,23 +29,7 @@ import {ImagesPage} from './pages/images/images.page';
         ListsPage,
         ImagesPage
     ], //components and directives that belong to this module
-    providers: [
-        APP_ROUTING_PROVIDERS,
-        HTTP_PROVIDERS,
-        AjaxService,
-        StreamService,
-        DialogService,
-        UuidService,
-        ColumnHeightService,
-        {
-            provide: LocationStrategy,
-            useClass: HashLocationStrategy
-        },
-        {
-            provide: 'API_ENDPOINT',
-            useValue: window.localStorage.getItem('ApiEndpoint') || '/api/'
-        }
-    ],
+    providers: APP_PROVIDERS,
     bootstrap: [AppComponent] //identifies the root component that Angular should bootstrap when it starts the application
 })
 
