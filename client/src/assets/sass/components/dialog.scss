@@ -1,0 +1,27 @@
+.modal {
+    background: rgba(0, 0, 0, 0.75);
+
+    &.show {
+        display: flex !important;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .close {
+        color: white;
+    }
+
+    .btn {
+        background-color: #27757b;
+        border: none;
+    }
+
+    .modal-content {
+        border: 1px solid #000;
+    }
+
+    .modal-header {
+        background: #1d1d1d;
+        color: white;
+    }
+}

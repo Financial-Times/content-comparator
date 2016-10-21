@@ -11,8 +11,10 @@ import {UuidService} from './services/uuid.service';
 import {StreamService} from './services/stream.service';
 import {AjaxService} from './services/ajax.service';
 import {ColumnHeightService} from './services/column-height.service';
+import {DialogService} from './services/dialog.service';
 
 import {SearchComponent} from './components/search/search.component';
+import {DialogComponent} from './components/dialog/dialog-component';
 
 import {ContentPage} from './pages/content/content.page';
 import {ListsPage} from './pages/lists/lists.page';
@@ -28,6 +30,7 @@ import {ImagesPage} from './pages/images/images.page';
     declarations: [
         AppComponent,
         SearchComponent,
+        DialogComponent,
         ContentPage,
         ListsPage,
         ImagesPage
@@ -37,6 +40,7 @@ import {ImagesPage} from './pages/images/images.page';
         HTTP_PROVIDERS,
         AjaxService,
         StreamService,
+        DialogService,
         UuidService,
         ColumnHeightService,
         {

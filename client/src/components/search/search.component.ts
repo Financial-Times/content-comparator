@@ -2,6 +2,7 @@ import {Router, NavigationEnd, Event as NavigationEvent} from '@angular/router';
 import {Component, Input, OnChanges, ViewChild, ElementRef} from '@angular/core';
 import {UuidService} from '../../services/uuid.service';
 import {StreamService} from '../../services/stream.service';
+import {DialogService} from '../../services/dialog.service';
 
 @Component({
   moduleId: module.id,
@@ -19,12 +20,14 @@ export class SearchComponent {
     legend: string;
     placeholder: string;
     section: string;
+    hint: Object = {};
 
     router: Router;
 
     constructor(
         private uuidService: UuidService,
         private streamService: StreamService,
+        private dialogService: DialogService,
         private _router: Router
     ) {
         this.router = _router;
@@ -35,6 +38,10 @@ export class SearchComponent {
                 this.updateSearchForm();
             }
         });
+    }
+
+    displayHint() {
+        this.dialogService.update(this.hint);
     }
 
     determinePlaceholder(section) {
@@ -53,6 +60,15 @@ export class SearchComponent {
     updateSection() {
         const pattern = this.uuidService.getPattern();
         this.section = (this.router.url.replace(pattern, '')).replace(/\//g, '');
+
+        if (this.section === 'lists') {
+            this.hint = {
+                title: 'Supported streams',
+                content: '<strong>Stream pages currently supported by FT Content Comparator</strong>:<br /><br />' + this.streamService.getStreams() + '<br /><br />Please let us know if you\'d like us to support any other streams.'
+            };
+        } else {
+            this.hint = {};
+        }
     }
 
     updateValue() {

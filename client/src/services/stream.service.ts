@@ -20,6 +20,10 @@ export class StreamService {
         this._streamUrl.next(text);
     }
 
+    getStreams() {
+        return this.streams.join(', ');
+    }
+
     isValidStreamUrl(stream) {
         return this.streamUrlPattern.test(stream) && this.streams.indexOf(stream) !== -1;
     }
