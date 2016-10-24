@@ -43,10 +43,15 @@ function fetchItem(itemUrl) {
         }, function (error, response, body) {
             if (!error) {
                 body = jsonHandler.parse(body);
-                getImage(body.mainImage).then(image => {
-                    body.mainImage = Object.assign({}, body.mainImage, image);
+                if (body.mainImage) {
+                    getImage(body.mainImage).then(image => {
+                        body.mainImage = Object.assign({}, body.mainImage, image);
+                        resolve(body);
+                    });
+                } else {
+                    body.mainImage = {};
                     resolve(body);
-                });
+                }
             } else {
                 reject(error);
             }
@@ -79,6 +84,7 @@ function lookUpList(data) {
                         item.publishedDateConverted = moment(item.publishedDate).format('MMMM MM, YYYY');
                         items.push(item);
                     });
+
                     resolve({
                         items: items,
                         type: data.listType,
@@ -86,6 +92,7 @@ function lookUpList(data) {
                         list: body
                     });
                 });
+
             } else {
                 error = error || {
                     statusMessage: 'List type of "' + listType + '" not found for stream page "' + data.stream + '"',
