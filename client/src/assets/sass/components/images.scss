@@ -1,0 +1,69 @@
+.images {
+    .images-page-section {
+        text-align: center;
+        color: #416e92;
+    }
+
+    .images-picture {
+        max-width: 100%;
+    }
+
+    .images-list-container {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .images-list-item {
+            border: 1px solid #cec6b9;
+            margin: 10px 5px;
+            padding: 10px;
+            text-align: center;
+            flex-basis: 40%;
+            flex-grow: 1;
+            position: relative;
+
+            &:nth-child(odd) {
+                background: #e9decf;
+            }
+
+            &:nth-child(even) {
+                background: #f6e9d8;
+            }
+
+            .image-caption-separator {
+                width: 100%;
+                height: 20px;
+                clear: both;
+            }
+
+            legend {
+                font-size: 12px;
+                margin-bottom: 10px;
+                overflow: auto;
+
+                .image-type {
+                    float: left;
+                }
+
+                .image-dimensions {
+                    float: right;
+                }
+            }
+
+            figcaption {
+                position: absolute;
+                bottom: 5px;
+                left: 10px;
+                right: 10px;
+                text-align: left;
+                .image-source {
+                    font-size: 15px;
+                    font-family: 'MetricWeb', sans-serif;
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}

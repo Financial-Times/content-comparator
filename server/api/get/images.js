@@ -5,18 +5,18 @@ const Promise = require('promise'),
     jsonHandler = require('../common/json-handler'),
     responder = require('../common/responder');
 
-module.exports = function handleContentCall(clientRequest, clientResponse) {
+module.exports = function handleImagesCall(clientRequest, clientResponse) {
 
     const category = clientRequest.params.category,
         uuid = clientRequest.params.id,
         config = {
             'v1': {
                 'url': process.env.FT_API_URL + process.env.FT_V1_API_ROUTE + uuid + '?apiKey=' + process.env.FT_API_KEY,
-                'parser': require('../../parsers/content.v1.parser')
+                'parser': require('../../parsers/v1/images.parser')
             },
             'v2': {
                 'url': process.env.FT_API_URL + process.env.FT_V2_API_ROUTE + uuid + '?apiKey=' + process.env.FT_API_KEY,
-                parser: require('../../parsers/content.v2.parser')
+                parser: require('../../parsers/v2/images.parser')
             }
         };
 

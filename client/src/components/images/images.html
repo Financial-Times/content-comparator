@@ -1,0 +1,25 @@
+<h3 class="images-page-section">Images {{version}} API</h3>
+
+<div class="loader" *ngIf="loading">
+    <div class="loader-inner ball-scale lists-column-loader">
+        <div></div>
+    </div>
+</div>
+
+<div class="images-list-container">
+    <figure class="images-list-item" *ngFor="let image of images">
+        <legend>
+            <span class="image-type">type: {{image.type}}</span>
+            <span class="image-dimensions">dimensions: {{image.width}} x {{image.height}}</span>
+        </legend>
+        <img class="images-picture" [src]="image.url" alt="{{image.alt}}" />
+        <div class="image-caption-separator" *ngIf="image.source"></div>
+        <figcaption *ngIf="image.source">
+            <span class="image-source">&copy; {{image.source}}</span>
+        </figcaption>
+    </figure>
+</div>
+
+<div class="no-images-message alert alert-dismissible alert-danger animated fadeIn" *ngIf="!loading && uuid && (!images || !images.length)">
+    <p>No images found in {{version}} API for the UUID of {{uuid}}.</p>
+</div>

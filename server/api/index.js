@@ -6,6 +6,7 @@ const responder = require('./common/responder'),
         GET: {
             content: require('./get/content'),
             lists: require('./get/lists'),
+            images: require('./get/images'),
             newest: require('./get/newest'),
             test: require('./get/test')
         },
