@@ -1,3 +1,4 @@
+
 <h3 class="images-page-section">Images {{version}} API</h3>
 
 <div class="loader" *ngIf="loading">
@@ -6,7 +7,7 @@
     </div>
 </div>
 
-<div class="images-list-container">
+<div class="images-list-container animated zoomInUp" *ngIf="images && images.length">
     <figure class="images-list-item" *ngFor="let image of images">
         <legend>
             <span class="image-type">type: {{image.type}}</span>
