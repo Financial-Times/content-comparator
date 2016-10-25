@@ -64,8 +64,8 @@ export class SearchComponent {
 
         if (this.section === 'lists') {
             this.hint = {
-                title: 'Supported streams',
-                content: '<strong>Stream pages currently supported by FT Content Comparator</strong>:<br /><br />' + this.streamService.getStreams() + '<br /><br />Please let us know if you\'d like us to support any other streams.'
+                title: 'Explicitly supported streams',
+                content: 'Some stream pages are currently explicitly supported by the search input field. Once they\'ve been entered in, the field automatically detects it and proceeds with an appropriate search straight away.<br /><br />These are:<br /><br /><em>' + this.streamService.getStreams() + '</em><br /><br /><strong>To trigger the search for the streams which are not explicitly supported, you need to press the ENTER key once you\'ve entered the stream url / name into the field.</strong><br /><br />Please let us know if you\'d like us to make the input field explicitly supporting any other streams.'
             };
         } else {
             this.hint = {};
