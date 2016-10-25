@@ -1,4 +1,5 @@
 import {Component, Inject} from '@angular/core';
+import {Observable} from 'rxjs/Rx';
 
 import {UuidService} from '../../services/uuid.service';
 import {ColumnHeightService} from '../../services/column-height.service';
@@ -25,15 +26,26 @@ export class ImagesV2Component {
         this.loading = true;
     }
 
+    onComplete() {
+        console.log('Images V2 fetch complete.')
+    }
+
+    handleError(error: any) {
+        console.error('Error on V2 images fetch', error);
+        return Observable.throw(error.json().error);
+    }
+
     fetch() {
-        this.loading = true;
-        this.ajaxService.get(this.API_ENDPOINT + 'images/v2/' + this.uuid)
-            .map(response => response.json())
-            .subscribe(images => {
-                this.images = images;
-                this.loading = false;
-                console.warn('this.images', images);
-            });
+        if (this.uuid) {
+            this.loading = true;
+            this.ajaxService.get(this.API_ENDPOINT + 'images/v2/' + this.uuid)
+                .map(response => response.json())
+                .subscribe(images => {
+                    this.images = images;
+                    this.loading = false;
+                    console.warn('this.images', images);
+                }, this.handleError, this.onComplete);
+        }
     }
 
     ngOnInit() {
