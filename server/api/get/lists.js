@@ -73,6 +73,8 @@ function lookUpList(data) {
             if (!error && response.statusCode === 200) {
                 body = body ? jsonHandler.parse(body) : {};
 
+                body.items = body.items || [];
+
                 const itemsPromises = body.items.map(item => {
                     return fetchItem(item.apiUrl);
                 });

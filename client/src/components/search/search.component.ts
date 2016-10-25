@@ -17,6 +17,7 @@ export class SearchComponent {
     streamUrl: string;
 
     inputValue: string;
+    inputValueForEnter: string;
     legend: string;
     placeholder: string;
     section: string;
@@ -112,11 +113,23 @@ export class SearchComponent {
         return anchor.pathname.replace('/', '');// ['href','protocol','host','hostname','port','pathname','search','hash']
     }
 
+    onKeyDown(event) {
+        if (event.keyCode === 13) {
+            if (this.section === 'lists') {
+                if (this.inputValue !== this.inputValueForEnter) {
+                    this.inputValue = this.inputValueForEnter;
+                    this.streamService.updateStreamUrl(this.inputValue);
+                }
+            }
+        }
+    }
+
     onValueChange(newValue) {
         if (this.section === 'content') {
             this.handleContentValue(newValue);
         } else if (this.section === 'lists') {
             newValue = this.convertUrl(newValue);
+            this.inputValueForEnter = newValue;
             this.handleListsValue(newValue);
         } else {
             this.uuidService.updateUuid(newValue);
@@ -140,7 +153,7 @@ export class SearchComponent {
         });
 
         this.streamService.streamUrlStream$.subscribe(streamUrl => {
-            if (this.streamService.isValidStreamUrl(streamUrl) && streamUrl !== this.streamUrl) {
+            if (streamUrl !== this.streamUrl) {
                 this.streamUrl = streamUrl;
             }
         });

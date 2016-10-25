@@ -4,7 +4,24 @@ import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class StreamService {
-    streams: Array<string> = ['arts', 'comment', 'companies', 'global-economy', 'lex', 'markets', 'opinion', 'travel', 'world', 'world/uk', 'work-careers', 'life-arts']; //get dynamically
+    streams: Array<string> = [
+        'arts',
+        'books',
+        'comment',
+        'companies',
+        'global-economy',
+        'lex',
+        'markets',
+        'markets/commodities',
+        'opinion',
+        'travel',
+        'world',
+        'world/uk',
+        'work-careers',
+        'work-careers/recruitment',
+        'life-arts'
+    ]; //get dynamically
+
     streamUrl: string = 'world';
     streamUrlPattern: RegExp = new RegExp('^[a-z-/]+$');
 

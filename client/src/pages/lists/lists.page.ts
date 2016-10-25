@@ -111,7 +111,7 @@ export class ListsPage {
         this.fetch();
 
         this.streamService.streamUrlStream$.subscribe(streamUrl => {
-            if (this.streamService.isValidStreamUrl(streamUrl) && streamUrl !== this.streamUrl) {
+            if (streamUrl !== this.streamUrl) {
                 this.streamUrl = streamUrl;
                 this.fetch();
             }

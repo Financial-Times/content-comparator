@@ -5,7 +5,7 @@
             <i class="legend-hint material-icons animated bounce" *ngIf="hint && hint.content" (click)="displayHint()">announcement</i>
         </div>
         <div class="form-group section-{{section}}">
-            <input type="text" class="form-control" [placeholder]="placeholder" [ngModel]="inputValue" (ngModelChange)="onValueChange($event)" />
+            <input type="text" class="form-control" [placeholder]="placeholder" [ngModel]="inputValue" (ngModelChange)="onValueChange($event)" (keydown)="onKeyDown($event)" />
         </div>
     </fieldset>
 </div>

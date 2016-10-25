@@ -30,7 +30,7 @@ export class ListsNextComponent {
         this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/' + this.streamUrl);
 
         this.streamService.streamUrlStream$.subscribe(streamUrl => {
-            if (this.streamService.isValidStreamUrl(streamUrl) && streamUrl !== this.streamUrl) {
+            if (streamUrl !== this.streamUrl) {
                 this.iframeLoaded = false;
                 this.iframe.nativeElement.className = 'lists-next-iframe hidden';
                 this.streamUrl = streamUrl;
