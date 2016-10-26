@@ -61,7 +61,7 @@ export class ContentNextComponent {
 
         this.iframe.nativeElement.onload = () => {
             this.iframeLoaded = true;
-            this.iframe.nativeElement.className = 'content-next-iframe fadeIn animated';
+            this.iframe.nativeElement.className = 'content-next-iframe animated zoomInUp';
         };
     }
 }

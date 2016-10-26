@@ -16,11 +16,11 @@
         <img class="images-picture" [src]="image.url" alt="{{image.alt}}" />
         <div class="image-caption-separator" *ngIf="image.source"></div>
         <figcaption *ngIf="image.source">
-            <span class="image-source">&copy; {{image.source}}</span>
+            <span class="image-source"><em *ngIf="image.source.indexOf('&copy;') === -1">&copy;</em> {{image.source}}</span>
         </figcaption>
     </figure>
 </div>
 
 <div class="no-images-message alert alert-dismissible alert-danger animated fadeIn" *ngIf="!loading && uuid && (!images || !images.length)">
-    <p>No images found in {{version}} API for the UUID of {{uuid}}.</p>
+    <p>No images found in {{version}} API for the UUID<br />{{uuid}}</p>
 </div>

@@ -36,10 +36,10 @@ module.exports = function handleImagesCall(clientRequest, clientResponse) {
         });
     }
 
-    fetch(config[category].url).then(parse).then(article => {
+    fetch(config[category].url).then(parse).then(images => {
         responder.send(clientResponse, {
             status: 200,
-            data: article
+            data: images
         });
     });
 };

@@ -58,12 +58,23 @@
                 left: 10px;
                 right: 10px;
                 text-align: left;
+
                 .image-source {
                     font-size: 15px;
                     font-family: 'MetricWeb', sans-serif;
                     font-style: italic;
+
+                    em {
+                        font-style: normal;
+                    }
                 }
             }
         }
     }
+}
+
+.no-images-message {
+    width: 75%;
+    margin: 25% auto;
+    text-align: center;
 }

@@ -43,7 +43,6 @@ export class ImagesV2Component {
                 .subscribe(images => {
                     this.images = images;
                     this.loading = false;
-                    console.warn('this.images', images);
                 }, this.handleError, this.onComplete);
         }
     }
