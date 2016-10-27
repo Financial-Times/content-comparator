@@ -9,15 +9,17 @@
 
 <div class="images-list-container animated zoomInUp" *ngIf="images && images.length">
     <figure class="images-list-item" *ngFor="let image of images">
-        <legend>
-            <span class="image-type">type: {{image.type}}</span>
-            <span class="image-dimensions">dimensions: {{image.width}} x {{image.height}}</span>
-        </legend>
-        <img class="images-picture" [src]="image.url" alt="{{image.alt}}" />
-        <div class="image-caption-separator" *ngIf="image.source"></div>
-        <figcaption *ngIf="image.source">
-            <span class="image-source"><em *ngIf="image.source.indexOf('&copy;') === -1">&copy;</em> {{image.source}}</span>
-        </figcaption>
+        <a href="{{image.url}}" target="_blank">
+            <legend>
+                <span class="image-type">type: {{image.type}}</span>
+                <span class="image-dimensions">dimensions: {{image.width}} x {{image.height}}</span>
+            </legend>
+            <img class="images-picture" [src]="image.url" alt="{{image.alt}}" />
+            <div class="image-caption-separator" *ngIf="image.source"></div>
+            <figcaption *ngIf="image.source">
+                <span class="image-source"><em *ngIf="image.source.indexOf('&copy;') === -1">&copy;</em> {{image.source}}</span>
+            </figcaption>
+        </a>
     </figure>
 </div>
 
