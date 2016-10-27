@@ -41,5 +41,8 @@ module.exports = function handleImagesCall(clientRequest, clientResponse) {
             status: 200,
             data: images
         });
+    }).catch(error => {
+        console.error('[api-get-images] Error', error.statusCode);
+        responder.reject(clientResponse, error);
     });
 };

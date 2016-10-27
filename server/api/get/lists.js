@@ -64,45 +64,50 @@ function getListTypeParam(type) {
 }
 
 function lookUpList(data) {
-    const uuid = extractUuid(data.concordances[0].concept.id),
+    const uuid = data.concordances ? extractUuid(data.concordances[0].concept.id) : null,
         listType = getListTypeParam(data.listType);
 
     return new Promise(function (resolve, reject) {
-        request(process.env.FT_API_URL + 'lists?' + listType + '=' + uuid + '&apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
+        if (uuid) {
+            request(process.env.FT_API_URL + 'lists?' + listType + '=' + uuid + '&apiKey=' + process.env.FT_API_KEY, function (error, response, body) {
+                if (!error && response.statusCode === 200) {
+                    body = body ? jsonHandler.parse(body) : {};
 
-            if (!error && response.statusCode === 200) {
-                body = body ? jsonHandler.parse(body) : {};
+                    body.items = body.items || [];
 
-                body.items = body.items || [];
-
-                const itemsPromises = body.items.map(item => {
-                    return fetchItem(item.apiUrl);
-                });
-
-                let items = [];
-
-                Promise.all(itemsPromises).then((promises) => {
-                    promises.map((item) => {
-                        item.publishedDateConverted = moment(item.publishedDate).format('MMMM MM, YYYY');
-                        items.push(item);
+                    const itemsPromises = body.items.map(item => {
+                        return fetchItem(item.apiUrl);
                     });
 
-                    resolve({
-                        items: items,
-                        type: data.listType,
-                        title: body.title,
-                        list: body
-                    });
-                });
+                    let items = [];
 
-            } else {
-                error = error || {
-                    statusMessage: 'List type of "' + listType + '" not found for stream page "' + data.stream + '"',
-                    statusCode: response.statusCode
-                };
-                reject(error);
-            }
-        });
+                    Promise.all(itemsPromises).then((promises) => {
+                        promises.map((item) => {
+                            item.publishedDateConverted = moment(item.publishedDate).format('MMMM MM, YYYY');
+                            items.push(item);
+                        });
+
+                        resolve({
+                            items: items,
+                            type: data.listType,
+                            title: body.title,
+                            list: body
+                        });
+                    });
+
+                } else {
+                    error = error || {
+                        statusMessage: 'List type of "' + data.listType + '" not found for stream page "' + data.stream + '"',
+                        statusCode: response.statusCode
+                    };
+                    reject(error);
+                }
+            });
+        } else {
+            reject({
+                statusMessage: 'No UUI found in Concordances for "' + data.listType + '" in "' + data.stream + '" stream.'
+            });
+        }
     });
 }
 
@@ -142,7 +147,7 @@ function fetchContentId(stream, listType) {
     });
 }
 
-module.exports = function handleConceptCall(clientRequest, clientResponse) {
+module.exports = function handleListsCall(clientRequest, clientResponse) {
     const stream = clientRequest.params.id,
         listType = clientRequest.query.listType;
 
@@ -152,6 +157,7 @@ module.exports = function handleConceptCall(clientRequest, clientResponse) {
             data: data
         });
     }).catch(error => {
+        console.error('[api-get-lists] Error', error.statusCode);
         responder.reject(clientResponse, error);
     });
 };

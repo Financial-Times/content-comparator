@@ -38,7 +38,9 @@ function parse(index, element, mainImageUrl) {
         break;
     }
 
-    return convert(index, element, mainImageUrl);
+    return convert(index, element, mainImageUrl).catch(error => {
+        console.error('[parsers-v2-ft-content.parser] Error', error.statusCode);
+    });
 }
 
 module.exports = {

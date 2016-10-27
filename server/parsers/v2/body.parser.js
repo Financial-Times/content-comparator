@@ -35,6 +35,8 @@ function handle(body, mainImageUrl) {
             $(o.element).replaceWith(o.replacement);
         });
         return $.html();
+    }).catch(error => {
+        console.error('[parsers-v2-body.parser] Error', error.statusCode);
     });
 }
 

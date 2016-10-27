@@ -84,7 +84,9 @@ function handle(response) {
         imagesetUrls.push(imageset.attribs.url);
     });
 
-    return getImageUrls(imagesetUrls);
+    return getImageUrls(imagesetUrls).catch(error => {
+        console.error('[parsers-v2-images.parser] Error', error.statusCode);
+    });
 }
 
 module.exports = {

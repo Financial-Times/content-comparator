@@ -60,11 +60,15 @@ function handle(response) {
     function getArticleWithImage() {
         return fetchImage(response.mainImage).then(image => {
             return getArticle(image);
+        }).catch(error => {
+            console.error('[parsers-content.v2.parser] Error', error.statusCode);
         });
     }
 
     function getArticleWithoutImage() {
-        return getArticle({});
+        return getArticle({}).catch(error => {
+            console.error('[parsers-content.v2.parser] Error', error.statusCode);
+        });
     }
 
     return response.mainImage ? getArticleWithImage() : getArticleWithoutImage();

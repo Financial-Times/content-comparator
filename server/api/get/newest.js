@@ -42,6 +42,9 @@ module.exports = function handleTestCall(req, response) {
                 id: id
             }
         });
+    }).catch(error => {
+        console.error('[api-get-newest] Error', error);
+        responder.reject(response, error);
     });
 };
 

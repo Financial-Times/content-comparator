@@ -41,5 +41,8 @@ module.exports = function handleContentCall(clientRequest, clientResponse) {
             status: 200,
             data: article
         });
+    }).catch(error => {
+        console.error('[api-get-content] Error', error.statusCode);
+        responder.reject(clientResponse, error);
     });
 };
