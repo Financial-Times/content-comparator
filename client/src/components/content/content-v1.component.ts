@@ -48,12 +48,14 @@ export class ContentV1Component {
     label = 'Content V1 API';
 
     fetch() {
-        this.ajaxService.get(this.API_ENDPOINT + 'content/v1/' + this.uuid)
-            .map(response => <Article> response.json())
-            .subscribe(article => {
-                this.article = article;
-                this.visible = true;
-            });
+        if (this.uuid) {
+            this.ajaxService.get(this.API_ENDPOINT + 'content/v1/' + this.uuid)
+                .map(response => <Article> response.json())
+                .subscribe(article => {
+                    this.article = article;
+                    this.visible = true;
+                });
+        }
     }
 
     ngAfterViewChecked() {

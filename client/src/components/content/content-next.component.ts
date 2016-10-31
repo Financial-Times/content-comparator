@@ -37,9 +37,15 @@ export class ContentNextComponent {
 
     label = 'Content next.ft.com';
 
+    loadIframe() {
+        if (this.uuid) {
+            this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
+        }
+    }
+
     ngOnInit() {
         this.uuid = this.uuidService.uuid;
-        this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
+        this.loadIframe();
 
         this.uuidService.uuidStream$.subscribe(uuid => {
             const pattern = new RegExp('[a-zA-Z0-9]{8}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{4}-[a-zA-Z0-9]{12}');
@@ -48,7 +54,7 @@ export class ContentNextComponent {
                 this.iframeLoaded = false;
                 this.iframe.nativeElement.className = 'content-next-iframe hidden';
                 this.uuid = uuid;
-                this.iframeUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.ft.com/content/' + this.uuid);
+                this.loadIframe();
             }
 
         });

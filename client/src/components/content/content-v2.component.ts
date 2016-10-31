@@ -47,12 +47,14 @@ export class ContentV2Component {
     }
 
     fetch() {
-        this.ajaxService.get(this.API_ENDPOINT + 'content/v2/' + this.uuid)
-            .map(response => <Article> response.json())
-            .catch(this.handleError)
-            .subscribe(article => {
-                this.article = article;
-            });
+        if (this.uuid) {
+            this.ajaxService.get(this.API_ENDPOINT + 'content/v2/' + this.uuid)
+                .map(response => <Article> response.json())
+                .catch(this.handleError)
+                .subscribe(article => {
+                    this.article = article;
+                });
+        }
     }
 
     ngAfterViewChecked() {
