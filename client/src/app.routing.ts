@@ -23,6 +23,10 @@ export const APP_ROUTES: Routes = [
         component: ImagesPage
     },
     {
+        path: 'images/:id',
+        component: ImagesPage
+    },
+    {
         path: '**',
         redirectTo: '/content',
         pathMatch: 'full'
