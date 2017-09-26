@@ -23,7 +23,7 @@ const CONFIG = new ConfigService().get(),
   host: {
     '[class.visible]': 'visible'
   },
-  templateUrl: 'content-component.html',
+  templateUrl: 'content-disabled.html',
   providers: [AjaxService]
 })
 
