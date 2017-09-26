@@ -39,12 +39,11 @@
             healthCheck: function() {
                 return new Promise(function(resolve, reject) {
                     const testuuid = "d525b976-3153-11e5-8873-775ba7c2ea3d",
-                    v1_url = process.env.FT_API_URL + process.env.FT_V1_API_ROUTE + testuuid + '?apiKey=' + process.env.FT_API_KEY,
                     v2_url = process.env.FT_API_URL + process.env.FT_V2_API_ROUTE + testuuid + '?apiKey=' + process.env.FT_API_KEY;
-                    Promise.all([fetch(v1_url), fetch(v2_url)]).then(responses => {
+                    Promise.all([fetch(v2_url)]).then(responses => {
                         var healthchecks = [];
                         responses.forEach((response, index) => {
-                            const version = index + 1;
+                            const version = index + 2;
                             healthchecks.push({
                                 id: 'apiv'+version,
                                 name: "Can Connect to CAPI v"+version,
